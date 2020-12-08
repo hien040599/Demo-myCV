@@ -66,7 +66,6 @@ function useBanner(props) {
   const [data, setdata] = useState("");
   useEffect(() => {
     let autoPlay = setInterval(function () {
-      console.log(123);
       animateBtn(
         ".btn-banner",
         "animate__animated animate__bounceOutUp",
