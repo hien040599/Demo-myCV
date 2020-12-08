@@ -6,7 +6,6 @@ import useBtnTop from "./hooks/useBtnTop";
 import useLoading from "./hooks/useLoading";
 import LoadingPage from "./components/loading/LoadingPage";
 
-
 function App() {
   useBtnTop();
   useLoading();
@@ -30,7 +29,7 @@ function App() {
     <Router>
       <div className="wrapper">
         <BtnTop />
-        <LoadingPage/>
+        <LoadingPage />
         <Switch>{showRouters(Routers)}</Switch>
       </div>
     </Router>
