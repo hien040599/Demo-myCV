@@ -1,0 +1,221 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.column {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.wrapp-title {
+  width: 100%;
+  text-align: center;
+  & h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    margin: 0 0 15px;
+    padding: 0 0 15px;
+    color: $textColor;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 102%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 86px;
+      height: 2px;
+      background-color: $blackColor;
+    }
+  }
+  & p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 26px;
+    color: $textColor;
+    margin-bottom: 58px;
+  }
+}
+
+.wrapp-content-card {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+  & .img-card {
+    position: relative;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 335px;
+      object-fit: cover;
+    }
+  }
+  & .warapp-infor-card {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0;
+    padding-bottom: 8px;
+    &__infor {
+      & h3 {
+        width: 98%;
+        line-height: 1;
+        margin: 0 0 6px;
+        & a {
+          letter-spacing: 0.2px;
+          font-weight: 500;
+          font-size: 1.6rem;
+          color: $textColor;
+          line-height: 2rem;
+          transition: all ease-in-out 0.3s;
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+      }
+      & p {
+        font-size: 1.5rem;
+        color: $textColor;
+      }
+    }
+    &__icon button {
+      font-size: 1.6rem;
+      display: inline-block;
+      margin: 4px 0 0 10px;
+      color: #929292;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: all ease-in-out 0.3s;
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+  &__link {
+    position: absolute;
+    font-size: 1.6rem;
+    opacity: 0;
+    text-decoration: none;
+    line-height: 48px;
+    height: 48px;
+    color: $whiteColor;
+    background-color: $primaryColor;
+    border: none;
+    left: 0;
+    right: 0;
+    top: 100%;
+    text-align: center;
+    transition: all linear 0.3s;
+    &:hover {
+      color: $whiteColor;
+      background-color: $blackColor;
+    }
+  }
+  &:hover {
+    .wrapp-content-card__link {
+      opacity: 1;
+      top: 86%;
+    }
+  }
+}
+
+.row {
+  &__link-view-more {
+    margin-top: 32px;
+    width: 100%;
+    text-align: center;
+    & a {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+      line-height: 1;
+      padding-bottom: 2px;
+      text-align: center;
+      display: inline-block;
+      color: #555;
+      border-bottom: 1px solid #ccc;
+      transition: all linear 0.3s;
+      &:hover {
+        color: $primaryColor;
+        border-bottom: 1px solid $primaryColor;
+      }
+    }
+  }
+}
+
+.wrapp-email-sub {
+  @include flex-box(space-between, center);
+  width: 100%;
+  padding: 80px 18px;
+  margin-top: 38px;
+  background-color: $blackColor;
+  &__form-sub {
+    & h3 {
+      letter-spacing: 0.3px;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 2.5rem;
+      color: $whiteColor;
+      margin: 0 0 15px 0;
+    }
+    & p {
+      font-size: 1.2rem;
+      color: $whiteColor;
+      letter-spacing: 0.3px;
+    }
+    &__input {
+      @include flex-box(space-between, center);
+      & input[type="text"] {
+        flex: 1;
+        padding: 6px 0 7px;
+        font-size: 1.2rem;
+        border: none;
+        border-bottom: 1px solid $whiteColor;
+        color: $whiteColor;
+        outline: none;
+        background-color: $blackColor;
+        &::placeholder {
+          font-size: 1.2rem;
+          color: $whiteColor;
+        }
+      }
+      & span {
+        width: 20%;
+        margin: 0 0 0 6px;
+        cursor: pointer;
+        & i {
+          color: $whiteColor;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+.wrap-intro-brands {
+  width: 100%;
+  padding: 80px 0 28px 0;
+  text-align: center;
+  & h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 3rem;
+    color: $textColor;
+    margin: 0 0 50px 0;
+  }
+  &__show-brands {
+    @include flex-box(space-around);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    & div {
+      @include flex-box(center, center);
+      width: 270px;
+      height: 129px;
+      & img {
+        line-height: 129px;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.wrapp-content__link-register {
+  @include flex-box(center, center);
+  width: 100%;
+  margin-bottom: 40px;
+  & h4 {
+    & a {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin: 0 20px;
+      color: $textColor;
+    }
+    &:first-child a {
+      position: relative;
+      &::after {
+        @include pos-ab(18%, 129%);
+        content: "";
+        width: 2px;
+        height: 22px;
+        background-color: $blackColor;
+      }
+    }
+    &:last-child a {
+      color: $primaryColor;
+    }
+  }
+}

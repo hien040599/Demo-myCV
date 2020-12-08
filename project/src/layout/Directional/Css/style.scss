@@ -1,0 +1,32 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.wrap-directional {
+  @include flex-box(center, center);
+  height: 94px;
+  margin: 36px 0 98px 0;
+  width: 100%;
+  background-color: #f7f7f7;
+  & p{
+      font-size: 1.6rem;
+      & span{
+        color: $textColor;
+        font-weight: 500;
+        font-size: 1.6rem;
+        padding: 0 20px;
+        text-transform: uppercase; 
+      }
+    & a{
+    color: #5b5858;
+    font-weight: 500;
+    font-size: 1.6rem;
+    padding: 0 20px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        color: $primaryColor;
+    }
+    }
+  }
+}

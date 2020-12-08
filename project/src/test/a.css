@@ -1,0 +1,22 @@
+.slide{
+    width: 800px;
+    margin: auto;
+}
+.owl-carousel {
+    position: relative;
+}
+.owl-nav{
+    position: absolute;
+   width: 100%;
+   top: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 2;
+
+}
+.owl-nav i{
+    font-size: 18px;
+    opacity: 0.8;
+   color: #999;;
+
+}

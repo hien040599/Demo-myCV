@@ -1,0 +1,42 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  border: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: $primaryColor;
+  right: -4%;
+  top: 86%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  & i {
+    color: $whiteColor;
+    font-size: 1.6rem;
+  }
+  &:hover i {
+    animation: back-top 1.2s linear infinite;
+  }
+}
+.show-btn-back-to-top {
+  visibility: visible;
+  opacity: 1;
+  right: 2%;
+}
+@keyframes back-top {
+  from {
+    transform: translateY(36px);
+  }
+  to {
+    transform: translateY(-36px);
+  }
+}

@@ -1,0 +1,236 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.row {
+  width: 100%;
+  & .wrapp-content {
+    width: 100%;
+    text-align: center;
+    &__link {
+      @include flex-box(center, center);
+      width: 100%;
+      margin-bottom: 40px;
+      & h4 {
+        & a {
+          font-size: 2.6rem;
+          font-weight: 700;
+          margin: 0 20px;
+          color: $textColor;
+        }
+        &:first-child a {
+          position: relative;
+          color: $primaryColor;
+          &::after {
+            @include pos-ab(18%, 129%);
+            content: "";
+            width: 2px;
+            height: 22px;
+            background-color: $blackColor;
+          }
+        }
+      }
+    }
+    &__wrap-form {
+      position: relative;
+      background: transparent;
+      display: inline-block;
+      width: 58%;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      padding: 80px;
+      &__hr {
+        width: 100%;
+        margin: 48px 0 28px 0;
+        & p {
+          color: $textColor;
+          font-size: 1.4rem;
+          letter-spacing: 0.3px;
+        }
+      }
+      &__forgot {
+        @include flex-box(space-around, center);
+        width: 100%;
+        padding: 0 86px;
+        & button {
+          @include flex-box(center, center);
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          transform: perspective(1px) translateZ(0);
+          transition-duration: 0.5s;
+          &:hover {
+            transform: scale(1.4);
+            transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+          }
+          & i {
+            font-size: 1.8rem;
+          }
+          &:first-child {
+            color: $whiteColor;
+            background-color: #415b9c;
+          }
+          &:nth-child(2) {
+            color: $whiteColor;
+            background: linear-gradient(
+              -120deg,
+              #4285f4,
+              #34a853,
+              #fbbc05,
+              #ea4335
+            );
+          }
+          &:nth-child(3) {
+            color: $whiteColor;
+            background: linear-gradient(
+              45deg,
+              #405de6,
+              #5851db,
+              #833ab4,
+              #c13584,
+              #e1306c,
+              #fd1d1d
+            );
+          }
+          &:last-child {
+            color: $whiteColor;
+            background-color: #5ea9dd;
+          }
+        }
+      }
+
+      & input[type="text"],
+      input[type="password"] {
+        outline: none;
+        width: 100%;
+        height: 45px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #ebebeb;
+        color: $textColor;
+        font-size: 1.6rem;
+        margin-bottom: 32px;
+        padding: 0 15px;
+        transition: all 0.3s linear;
+        &::placeholder {
+          color: transparent;
+        }
+        &:required + label {
+          top: -10%;
+          font-size: 14px;
+          color: #333;
+        }
+        &:placeholder-shown + label {
+          position: absolute;
+          top: 24%;
+          left: 2%;
+          font-size: 1.6rem;
+          letter-spacing: 0.2px;
+        }
+        &:focus {
+          border-image: linear-gradient(180deg, #1dbfaf, #1dbfaf 50%, #1dbfaf);
+          border-image-slice: 1;
+          transition: all 0.3s linear;
+        }
+        &:focus + label {
+          top: -18%;
+          color: #11998e;
+          font-size: 1.4rem;
+          margin-top: 8px;
+        }
+        &:hover {
+          border-color: #1dbfaf;
+        }
+      }
+      .errors-notify {
+        border-bottom: 1px solid red !important;
+      }
+      &__text {
+        @include flex-box(flex-start, center);
+        &__remember {
+          padding: 10px 0 19px 0;
+          & input[type="checkbox"] {
+            position: relative;
+            top: 2px;
+            height: 16px;
+            width: 18px;
+            margin: 0;
+          }
+          & span {
+            margin: 0 0 0 10px;
+            color: $textColor;
+            font-size: 1.5rem;
+            font-weight: 400;
+          }
+        }
+      }
+      &__btn {
+        margin: 12px 0 0 0;
+        & button {
+          outline: none;
+          cursor: pointer;
+          width: 100%;
+          color: $whiteColor;
+          border-radius: 8px;
+          cursor: pointer;
+          background-color: #1dbfaf;
+          border: none;
+          font-size: 1.6rem;
+          font-weight: 500;
+          line-height: 1;
+          padding: 12px 30px;
+          transition: all 0.3s ease 0s;
+          &:hover {
+            background-color: $primaryColor;
+          }
+        }
+      }
+      & .form-group {
+        width: 100%;
+        position: relative;
+        & label {
+          cursor: text;
+          position: absolute;
+          top: 26%;
+          left: 2%;
+          color: #333;
+          font-size: 1.6rem;
+          letter-spacing: 0.2px;
+          transition: all 0.3s ease-in-out;
+        }
+        &__notify {
+          &-error {
+            width: 100%;
+            &::after {
+              @include pos-ab(26%, 96%);
+              color: #f33a58;
+              content: "\f071";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              font-size: 1.4rem;
+            }
+            & p {
+              @include pos-ab(68%, 2%);
+              color: #f33a58;
+              font-size: 1.2rem;
+              line-height: 16px;
+            }
+          }
+          &-success {
+            width: 100%;
+            &::after {
+              @include pos-ab(26%, 96%);
+              color: #2ed573;
+              content: "\f058";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
