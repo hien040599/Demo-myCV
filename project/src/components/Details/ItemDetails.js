@@ -5,6 +5,8 @@ import Item from "../ListItems/Item";
 import { apiContext } from "../../context/GetApi";
 import CallApi from "../../API/CallApi";
 import ReactImageMagnify from "react-image-magnify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const pushListRelated = (arr = []) => {
   if (arr.length > 4) {
@@ -14,6 +16,7 @@ const pushListRelated = (arr = []) => {
 
 function ItemDetails({ itemid }) {
   const [item, setitem] = useState([]);
+  const [itemqnt, setItemqnt] = useState(1);
   let idNumber = parseInt(itemid);
   const { products } = useContext(apiContext);
   let arrNew = [...products];
@@ -32,7 +35,43 @@ function ItemDetails({ itemid }) {
     let value = e.target.value;
     setitem({ ...item, [name]: value });
   };
-
+  let changeIncreaseItem = () => {
+    setItemqnt(itemqnt + 1);
+    toast.success("Added To Cart", {
+      position: "bottom-left",
+      autoClose: 1200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  let changeDecreaseItem = () => {
+    if (itemqnt > 1) {
+      setItemqnt(itemqnt - 1);
+      toast.warn("Item Decremented From Cart", {
+        position: "bottom-left",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      setItemqnt(1);
+      toast.error("Number Of Products Cannot Be Less Than 1 !!!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   let showinforItem = (value) => {
     if (item.length === 0) {
       alert("Please choose the color and size of the item");
@@ -41,7 +80,7 @@ function ItemDetails({ itemid }) {
     } else if (!item.color && item.size) {
       alert("Please choose the color of the item");
     } else {
-      CallApi("cart", { ...value, ...item }, "POST");
+      CallApi("cart", { ...value, ...item, quantity: itemqnt }, "POST");
     }
   };
 
@@ -50,6 +89,17 @@ function ItemDetails({ itemid }) {
   return (
     <div className="wrapper">
       <Directional namePage={"Details"} />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={1200}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="container">
         {products.map((value, index) => {
           if (value.id === idNumber) {
@@ -134,9 +184,17 @@ function ItemDetails({ itemid }) {
                     <div className="wrapp-infor__options">
                       <div className="wrapp-infor__options__manipulation">
                         <div className="wrapp-infor__options__manipulation__qnt">
-                          <button>-</button>
-                          <input type="text" readOnly value="1"></input>
-                          <button>+</button>
+                          <button onClick={() => changeDecreaseItem()}>
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            value={itemqnt}
+                            onChange={(e) => handleChange(e)}
+                          ></input>
+                          <button onClick={() => changeIncreaseItem()}>
+                            +
+                          </button>
                         </div>
                         <button
                           onClick={() => showinforItem(value)}
