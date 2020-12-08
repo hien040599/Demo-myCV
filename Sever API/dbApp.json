@@ -1,0 +1,288 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Lorem ipsum jacketd",
+      "price": 11.2,
+      "quantity": 5,
+      "image": "../../images/4.jpg",
+      "namecate": "Jacket",
+      "color": [
+        "white",
+        "black",
+        "blue"
+      ],
+      "size": [
+        "X",
+        "L",
+        "XL"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 2,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/5.jpg",
+      "namecate": "T-shirt",
+      "color": [
+        "white",
+        "black",
+        "green"
+      ],
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 3,
+      "name": "Lorem ipsum fashion coat",
+      "price": 15.5,
+      "quantity": 8,
+      "image": "../../images/1.jpg",
+      "namecate": "Coat",
+      "color": [
+        "white",
+        "black"
+      ],
+      "size": [
+        "X",
+        "L",
+        "XL"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 4,
+      "name": "Lorem ipsum coat",
+      "price": 16.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Dress",
+      "color": [
+        "white",
+        "black",
+        "brown"
+      ],
+      "size": [
+        "X",
+        "L",
+        "XL"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 5,
+      "name": "Lorem ipsum coat",
+      "price": 18.7,
+      "quantity": 6,
+      "image": "../../images/8.jpg",
+      "namecate": "Polo",
+      "color": [
+        "blue",
+        "black",
+        "red"
+      ],
+      "size": [
+        "X",
+        "L",
+        "XL"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 6,
+      "name": "Lorem ipsum coat",
+      "price": 20.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Dress",
+      "color": [
+        "white",
+        "blue"
+      ],
+      "size": [
+        "M",
+        "L"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 7,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Dress",
+      "color": [
+        "white",
+        "black"
+      ],
+      "size": [
+        "M",
+        "L"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 8,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/7.jpg",
+      "namecate": "Coat",
+      "color": [
+        "white",
+        "black",
+        "blue"
+      ],
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 9,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Coat",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 10,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Coat",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 11,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Coat",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 12,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Jacket",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 13,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "Jacket",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 14,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "T-shirt",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 15,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "T-shirt",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 16,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/2.jpg",
+      "namecate": "T-shirt",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    }
+  ],
+  "cart": [
+    {
+      "id": 2,
+      "name": "Lorem ipsum coat",
+      "price": 15.7,
+      "quantity": 6,
+      "image": "../../images/5.jpg",
+      "namecate": "T-shirt",
+      "color": "black",
+      "size": "XL",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 5,
+      "name": "Lorem ipsum coat",
+      "price": 18.7,
+      "quantity": 6,
+      "image": "../../images/8.jpg",
+      "namecate": "Polo",
+      "color": "black",
+      "size": "XL",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    },
+    {
+      "id": 1,
+      "name": "Lorem ipsum jacketd",
+      "price": 11.2,
+      "quantity": 5,
+      "image": "../../images/4.jpg",
+      "namecate": "Jacket",
+      "color": "black",
+      "size": "XL",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "T-shirt"
+    },
+    {
+      "id": 2,
+      "name": "Coat"
+    },
+    {
+      "id": 3,
+      "name": "Dress"
+    },
+    {
+      "id": 4,
+      "name": "Jacket"
+    },
+    {
+      "id": 5,
+      "name": "Polo"
+    },
+    {
+      "id": 6,
+      "name": "Glasses"
+    },
+    {
+      "id": 7,
+      "name": "Wallet"
+    }
+  ]
+}
