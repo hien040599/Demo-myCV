@@ -456,4 +456,21 @@ button {
   content: "";
   background-color: #000;
 }
+
+.notify-cart-success {
+  background-color: #e3fcef !important;
+  color: #1b7858;
+  font-size: 1.4rem;
+}
+
+.notify-cart-warn {
+  background-color: #fffae6 !important;
+  color: #ffa434;
+  font-size: 1.4rem;
+}
+
+.notify-cart-err {
+  color: #fff;
+  font-size: 1.2rem;
+}
 /*# sourceMappingURL=style.css.map */

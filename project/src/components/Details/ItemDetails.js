@@ -5,8 +5,16 @@ import Item from "../ListItems/Item";
 import { apiContext } from "../../context/GetApi";
 import CallApi from "../../API/CallApi";
 import ReactImageMagnify from "react-image-magnify";
-import { ToastContainer, toast } from "react-toastify";
+import * as Notify from "../../Constants/Notify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  ADD_TO_CART,
+  DELETE_ITEM_FROM_CART,
+  NOTIFY_ERROR_QNT,
+  NOTIFY_ERROR,
+  NOTIFY_ERROR_SIZE,
+  NOTIFY_ERROR_COLOR,
+} from "../../Constants/Messages";
 
 const pushListRelated = (arr = []) => {
   if (arr.length > 4) {
@@ -37,50 +45,52 @@ function ItemDetails({ itemid }) {
   };
   let changeIncreaseItem = () => {
     setItemqnt(itemqnt + 1);
-    toast.success("Added To Cart", {
-      position: "bottom-left",
-      autoClose: 1200,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    Notify.toastSuccess(
+      ADD_TO_CART,
+      "bottom-left",
+      1200,
+      "notify-cart-success"
+    );
   };
   let changeDecreaseItem = () => {
     if (itemqnt > 1) {
       setItemqnt(itemqnt - 1);
-      toast.warn("Item Decremented From Cart", {
-        position: "bottom-left",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      Notify.toastWarn(
+        DELETE_ITEM_FROM_CART,
+        "bottom-left",
+        1200,
+        "notify-cart-warn"
+      );
     } else {
       setItemqnt(1);
-      toast.error("Number Of Products Cannot Be Less Than 1 !!!", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      Notify.toastError(
+        NOTIFY_ERROR_QNT,
+        "top-center",
+        2000,
+        "notify-cart-err"
+      );
     }
   };
   let showinforItem = (value) => {
     if (item.length === 0) {
-      alert("Please choose the color and size of the item");
+      Notify.toastError(NOTIFY_ERROR, "top-center", 2000, "notify-cart-err");
     } else if (!item.size && item.color) {
-      alert("Please choose the size of the item");
+      Notify.toastError(
+        NOTIFY_ERROR_SIZE,
+        "top-center",
+        2000,
+        "notify-cart-err"
+      );
     } else if (!item.color && item.size) {
-      alert("Please choose the color of the item");
+      Notify.toastError(
+        NOTIFY_ERROR_COLOR,
+        "top-center",
+        2000,
+        "notify-cart-err"
+      );
     } else {
       CallApi("cart", { ...value, ...item, quantity: itemqnt }, "POST");
+      Notify.toastSuccess(ADD_TO_CART, "bottom-left", 1200);
     }
   };
 
@@ -89,17 +99,7 @@ function ItemDetails({ itemid }) {
   return (
     <div className="wrapper">
       <Directional namePage={"Details"} />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={1200}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      {Notify.toastContainer("bottom-left", 1200)}
       <div className="container">
         {products.map((value, index) => {
           if (value.id === idNumber) {

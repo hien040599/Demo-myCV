@@ -301,3 +301,20 @@
     }
   }
 }
+
+.notify-cart {
+  &-success {
+    background-color: #e3fcef !important;
+    color: #1b7858;
+    font-size: 1.4rem;
+  }
+  &-warn {
+    background-color: #fffae6 !important;
+    color: #ffa434;
+    font-size: 1.4rem;
+  }
+  &-err {
+    color: $whiteColor;
+    font-size: 1.2rem;
+  }
+}
