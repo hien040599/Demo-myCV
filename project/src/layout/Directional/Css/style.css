@@ -39,6 +39,10 @@ button {
   outline: none !important;
 }
 
+button:disabled {
+  cursor: no-drop !important;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;

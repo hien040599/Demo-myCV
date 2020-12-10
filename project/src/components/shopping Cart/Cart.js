@@ -1,10 +1,12 @@
 import React from "react";
 import Directional from "../../layout/Directional/Directional";
 import "./Css/style.css";
-import anh from "../../images/3.jpg";
 import MyLink from "../../Constants/CustomLink";
+import CartItem from "./CartItem";
 
 function Cart(props) {
+  const { item } = props;
+
   return (
     <div className="wrapper">
       <Directional namePage={"Cart"} />
@@ -28,79 +30,20 @@ function Cart(props) {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <img src={anh} alt="imgs" />
-                  </td>
-                  <td>
-                    <div className="content-cart__name">
-                      <MyLink
-                        lable={"Lorem ipsum coat"}
-                        to={"/"}
-                        activeExact={true}
-                      />
-                      <p>Color: blue</p>
-                      <p>Size: XL</p>
-                    </div>
-                  </td>
-                  <td>
-                    <span>$15.8</span>
-                  </td>
-                  <td>
-                    <div className="content-cart__qnt">
-                      <button>+</button>
-                      <input type="text" readOnly value="1" />
-                      <button>-</button>
-                    </div>
-                  </td>
-                  <td>
-                    <span>$15.8</span>
-                  </td>
-                  <td>
-                    <span>
-                      <div>
-                        <i className="fas fa-trash-alt"></i>
-                      </div>
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <img src={anh} alt="imgs" />
-                  </td>
-                  <td>
-                    <div className="content-cart__name">
-                      <MyLink
-                        lable={"Lorem ipsum coat"}
-                        to={"/"}
-                        activeExact={true}
-                      />
-                      <p>Color: blue</p>
-                      <p>Size: XL</p>
-                    </div>
-                  </td>
-                  <td>
-                    <span>$15.8</span>
-                  </td>
-                  <td>
-                    <div className="content-cart__qnt">
-                      <button>+</button>
-                      <input type="text" readOnly value="1" />
-                      <button>-</button>
-                    </div>
-                  </td>
-                  <td>
-                    <span>$15.8</span>
-                  </td>
-                  <td>
-                    <span>
-                      <div>
-                        <i className="fas fa-trash-alt"></i>
-                      </div>
-                    </span>
-                  </td>
-                </tr>
+                {item.map((value, index) => {
+                  return (
+                    <CartItem
+                      ids={value.id}
+                      name={value.name}
+                      price={value.price}
+                      quantity={value.quantity}
+                      image={value.image}
+                      key={index}
+                      color={value.color}
+                      size={value.size}
+                    />
+                  );
+                })}
               </tbody>
             </table>
           </div>
