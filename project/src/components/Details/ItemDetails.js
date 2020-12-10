@@ -73,7 +73,6 @@ function ItemDetails({ itemid }) {
     }
   };
   let showinforItem = (value) => {
-    console.log(item);
     if (item.length === 0) {
       Notify.toastError(NOTIFY_ERROR, "top-center", 2000, "notify-cart-err");
     } else if (!item.size && item.color) {
@@ -105,6 +104,12 @@ function ItemDetails({ itemid }) {
             { ...value, ...item, quantity: itemCart.quantity + itemqnt },
             "PUT"
           );
+          Notify.toastSuccess(
+            ADD_TO_CART,
+            "bottom-left",
+            1200,
+            "notify-cart-success"
+          );
           break;
         } else {
           i += 1;
@@ -114,11 +119,7 @@ function ItemDetails({ itemid }) {
         }
       }
       if (flag) {
-        CallApi(
-          "cart",
-          { ...value, ...item, quantity: itemqnt, id: value.id + 99 },
-          "POST"
-        );
+        CallApi("cart", { ...value, ...item, quantity: itemqnt }, "POST");
         Notify.toastSuccess(
           ADD_TO_CART,
           "bottom-left",
