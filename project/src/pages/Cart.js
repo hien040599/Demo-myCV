@@ -3,10 +3,10 @@ import Cart from "../components/shopping Cart/Cart";
 import Footer from "../layout/footer/Footer";
 import Header from "../layout/header/Header";
 import { connect } from "react-redux";
-import { actGetApiCart } from "../Action/index";
+import { actDeleteApiCart, actGetApiCart } from "../Action/index";
 
 function CartPage(props) {
-  const { item, getAllCartItem } = props;
+  const { item, getAllCartItem, deleteCartItem } = props;
 
   useEffect(() => {
     getAllCartItem();
@@ -19,7 +19,7 @@ function CartPage(props) {
       </section>
 
       <section>
-        <Cart item={item} />
+        <Cart item={item} deleteCartItem={deleteCartItem}/>
       </section>
 
       <section>
@@ -37,6 +37,7 @@ let mapStateToProps = (state) => {
 let mapDispatchtoProps = (dispatch, props) => {
   return {
     getAllCartItem: () => dispatch(actGetApiCart()),
+    deleteCartItem: (idItem) => dispatch(actDeleteApiCart(idItem)),
   };
 };
 

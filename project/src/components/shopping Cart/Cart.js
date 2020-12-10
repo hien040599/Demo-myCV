@@ -5,7 +5,7 @@ import MyLink from "../../Constants/CustomLink";
 import CartItem from "./CartItem";
 
 function Cart(props) {
-  const { item } = props;
+  const { item, deleteCartItem} = props;
 
   return (
     <div className="wrapper">
@@ -33,7 +33,7 @@ function Cart(props) {
                 {item.map((value, index) => {
                   return (
                     <CartItem
-                      ids={value.id}
+                      idItem={value.id}
                       name={value.name}
                       price={value.price}
                       quantity={value.quantity}
@@ -41,6 +41,7 @@ function Cart(props) {
                       key={index}
                       color={value.color}
                       size={value.size}
+                      deleteCartItem={deleteCartItem}
                     />
                   );
                 })}

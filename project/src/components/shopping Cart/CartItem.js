@@ -2,7 +2,16 @@ import React from "react";
 import MyLink from "../../Constants/CustomLink";
 
 function CartItem(props) {
-  const { name, price, quantity, image, color, size } = props;
+  const {
+    idItem,
+    name,
+    price,
+    quantity,
+    image,
+    color,
+    size,
+    deleteCartItem,
+  } = props;
 
   return (
     <tr>
@@ -32,7 +41,10 @@ function CartItem(props) {
       <td>
         <span>
           <div>
-            <i className="fas fa-trash-alt"></i>
+            <i
+              className="fas fa-trash-alt"
+              onClick={() => deleteCartItem(idItem)}
+            ></i>
           </div>
         </span>
       </td>
