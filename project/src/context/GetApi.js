@@ -5,6 +5,7 @@ export const apiContext = createContext();
 
 function GetApiProvider({ children }) {
   const [products, setproducts] = useState([]);
+  const [cart, setcart] = useState([])
   useEffect(() => {
     let getData = async () => {
       let resultData = await CallApi("products", "GET");
@@ -13,8 +14,17 @@ function GetApiProvider({ children }) {
     getData();
   }, []);
 
+  useEffect(() => {
+    let getData = async () => {
+      let resultData = await CallApi("cart", "GET");
+      setcart(resultData.data);
+    };
+    getData();
+  }, []);
+
   const apiContextdata = {
     products,
+    cart
   };
   return (
     <apiContext.Provider value={apiContextdata}>{children}</apiContext.Provider>

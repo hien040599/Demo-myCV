@@ -5,7 +5,14 @@ import MyLink from "../../Constants/CustomLink";
 import CartItem from "./CartItem";
 
 function Cart(props) {
-  const { item, deleteCartItem} = props;
+  const { item, deleteCartItem } = props;
+
+  let totalItems = 0;
+
+  item.forEach((value) => {
+    let total = Number(value.price * value.quantity);
+    totalItems += total;
+  });
 
   return (
     <div className="wrapper">
@@ -68,11 +75,11 @@ function Cart(props) {
               <div className="col-cart-show-total__wrap-content__body">
                 <div className="col-cart-show-total__wrap-content__body__qnt">
                   <span>Total products</span>
-                  <span>2</span>
+                  <span>{item.length}</span>
                 </div>
                 <div className="col-cart-show-total__wrap-content__body__total">
                   <span>Grand Total</span>
-                  <span>$60.83</span>
+                  <span>${totalItems.toFixed(1)}</span>
                 </div>
               </div>
               <div className="col-cart-show-total__wrap-content__footer">

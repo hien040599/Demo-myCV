@@ -26,7 +26,8 @@ function ItemDetails({ itemid }) {
   const [item, setitem] = useState([]);
   const [itemqnt, setItemqnt] = useState(1);
   let idNumber = parseInt(itemid);
-  const { products } = useContext(apiContext);
+  const { products, cart } = useContext(apiContext);
+  let arrCart = [...cart];
   let arrNew = [...products];
   let count = 0;
 
@@ -72,6 +73,7 @@ function ItemDetails({ itemid }) {
     }
   };
   let showinforItem = (value) => {
+    console.log(item);
     if (item.length === 0) {
       Notify.toastError(NOTIFY_ERROR, "top-center", 2000, "notify-cart-err");
     } else if (!item.size && item.color) {
@@ -89,8 +91,41 @@ function ItemDetails({ itemid }) {
         "notify-cart-err"
       );
     } else {
-      CallApi("cart", { ...value, ...item, quantity: itemqnt }, "POST");
-      Notify.toastSuccess(ADD_TO_CART, "bottom-left", 1200);
+      let flag = false;
+      let i = 0;
+
+      for (const itemCart of arrCart) {
+        if (
+          idNumber === itemCart.id &&
+          item.color === itemCart.color &&
+          item.size === itemCart.size
+        ) {
+          CallApi(
+            `cart/${idNumber}`,
+            { ...value, ...item, quantity: itemCart.quantity + itemqnt },
+            "PUT"
+          );
+          break;
+        } else {
+          i += 1;
+          if (i === arrCart.length) {
+            flag = true;
+          }
+        }
+      }
+      if (flag) {
+        CallApi(
+          "cart",
+          { ...value, ...item, quantity: itemqnt, id: value.id + 99 },
+          "POST"
+        );
+        Notify.toastSuccess(
+          ADD_TO_CART,
+          "bottom-left",
+          1200,
+          "notify-cart-success"
+        );
+      }
     }
   };
 
