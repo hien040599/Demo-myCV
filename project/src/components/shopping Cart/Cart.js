@@ -5,7 +5,7 @@ import MyLink from "../../Constants/CustomLink";
 import CartItem from "./CartItem";
 
 function Cart(props) {
-  const { item, deleteCartItem } = props;
+  const { item, deleteCartItem, updateCartItem } = props;
 
   let totalItems = 0;
 
@@ -13,6 +13,12 @@ function Cart(props) {
     let total = Number(value.price * value.quantity);
     totalItems += total;
   });
+
+  let handleClearAll = () => {
+    item.forEach((value) => {
+      deleteCartItem(value.id);
+    });
+  };
 
   return (
     <div className="wrapper">
@@ -49,6 +55,8 @@ function Cart(props) {
                       color={value.color}
                       size={value.size}
                       deleteCartItem={deleteCartItem}
+                      updateCartItem={updateCartItem}
+                      item={value}
                     />
                   );
                 })}
@@ -64,7 +72,9 @@ function Cart(props) {
                 to={"/collection"}
                 activeExact={true}
               />
-              <button>Clear Shopping Cart</button>
+              <button onClick={() => handleClearAll()}>
+                Clear Shopping Cart
+              </button>
             </div>
           </div>
           <div className="col-cart-show-total">

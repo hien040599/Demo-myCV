@@ -1,5 +1,12 @@
 import React from "react";
 import MyLink from "../../Constants/CustomLink";
+import {
+  ADD_TO_CART,
+  DELETE_ITEM_FROM_CART,
+  NOTIFY_ERROR_QNT,
+} from "../../Constants/Messages";
+import * as Notify from "../../Constants/Notify";
+
 
 function CartItem(props) {
   const {
@@ -11,7 +18,40 @@ function CartItem(props) {
     color,
     size,
     deleteCartItem,
+    updateCartItem,
+    item,
   } = props;
+
+  let handleChangeQnt = (e) => {};
+
+  let updateIncreaseItemCart = (idItem, data) => {
+    updateCartItem(idItem, { ...data, quantity: data.quantity + 1 });
+    Notify.toastSuccess(
+      ADD_TO_CART,
+      "bottom-left",
+      1200,
+      "notify-cart-success"
+    );
+  };
+
+  let updateDecreaseItemCart = (idItem, data) => {
+    if (data.quantity - 1 > 0) {
+      updateCartItem(idItem, { ...data, quantity: data.quantity - 1 });
+      Notify.toastWarn(
+        DELETE_ITEM_FROM_CART,
+        "bottom-left",
+        1200,
+        "notify-cart-warn"
+      );
+    } else {
+      Notify.toastError(
+        NOTIFY_ERROR_QNT,
+        "top-center",
+        2000,
+        "notify-cart-err"
+      );
+    }
+  };
 
   return (
     <tr>
@@ -29,10 +69,19 @@ function CartItem(props) {
         <span>${price}</span>
       </td>
       <td>
+        {Notify.toastContainer("bottom-left", 1200)}
         <div className="content-cart__qnt">
-          <button>-</button>
-          <input type="text" readOnly value={quantity} />
-          <button>+</button>
+          <button onClick={() => updateDecreaseItemCart(idItem, item)}>
+            -
+          </button>
+          <input
+            type="text"
+            onChange={(e) => handleChangeQnt(e)}
+            value={quantity}
+          />
+          <button onClick={() => updateIncreaseItemCart(idItem, item)}>
+            +
+          </button>
         </div>
       </td>
       <td>

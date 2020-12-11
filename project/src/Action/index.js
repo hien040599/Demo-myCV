@@ -15,6 +15,13 @@ export let actDeleteApiCart = (idItem) => {
   };
 };
 
+export let actUpdateApiCart = (idItem, data) => {
+  return async (dispatch) => {
+    await CallApi(`cart/${idItem}`, data, "PUT");
+    dispatch(actGetApiCart());
+  };
+};
+
 export let actRenderApi = (item) => {
   return {
     type: Type.GET_CART_API,

@@ -15,6 +15,7 @@ import {
   NOTIFY_ERROR_SIZE,
   NOTIFY_ERROR_COLOR,
 } from "../../Constants/Messages";
+import { v4 as uuidv4 } from "uuid";
 
 const pushListRelated = (arr = []) => {
   if (arr.length > 4) {
@@ -72,8 +73,8 @@ function ItemDetails({ itemid }) {
       );
     }
   };
+
   let showinforItem = (value) => {
-    console.log(value);
     if (item.length === 0) {
       Notify.toastError(NOTIFY_ERROR, "top-center", 2000, "notify-cart-err");
     } else if (!item.size && item.color) {
@@ -94,33 +95,47 @@ function ItemDetails({ itemid }) {
       let flag = false;
       let i = 0;
 
-      for (const itemCart of arrCart) {
-        if (
-          idNumber === itemCart.id &&
-          item.color === itemCart.color &&
-          item.size === itemCart.size
-        ) {
-          CallApi(
-            `cart/${idNumber}`,
-            { ...value, ...item, quantity: itemCart.quantity + itemqnt },
-            "PUT"
-          );
-          Notify.toastSuccess(
-            ADD_TO_CART,
-            "bottom-left",
-            1200,
-            "notify-cart-success"
-          );
-          break;
-        } else {
-          i += 1;
-          if (i === arrCart.length) {
-            flag = true;
+      if (arrCart.length > 0) {
+        for (const itemCart of arrCart) {
+          if (
+            value.name === itemCart.name &&
+            item.color === itemCart.color &&
+            item.size === itemCart.size
+          ) {
+            CallApi(
+              `cart/${itemCart.id}`,
+              {
+                ...value,
+                ...item,
+                quantity: itemCart.quantity + itemqnt,
+                id: itemCart.id,
+              },
+              "PUT"
+            );
+            Notify.toastSuccess(
+              ADD_TO_CART,
+              "bottom-left",
+              1200,
+              "notify-cart-success"
+            );
+            break;
+          } else {
+            i += 1;
+            if (i === arrCart.length) {
+              flag = true;
+            }
           }
         }
+      } else {
+        flag = true;
       }
+
       if (flag) {
-        CallApi("cart", { ...value, ...item, quantity: itemqnt }, "POST");
+        CallApi(
+          "cart",
+          { ...value, ...item, quantity: itemqnt, id: uuidv4() },
+          "POST"
+        );
         Notify.toastSuccess(
           ADD_TO_CART,
           "bottom-left",
