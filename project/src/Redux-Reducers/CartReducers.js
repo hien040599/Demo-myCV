@@ -6,7 +6,7 @@ let Cart = (state = initialState, action) => {
   let { type, payload } = action;
   switch (type) {
     case GET_CART_API:
-      state = [...payload];
+      state = [...payload].reverse();
       return [...state];
     case DELETE_CART_API:
       return [...state];

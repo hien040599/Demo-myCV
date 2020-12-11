@@ -73,6 +73,7 @@ function ItemDetails({ itemid }) {
     }
   };
   let showinforItem = (value) => {
+    console.log(value);
     if (item.length === 0) {
       Notify.toastError(NOTIFY_ERROR, "top-center", 2000, "notify-cart-err");
     } else if (!item.size && item.color) {
