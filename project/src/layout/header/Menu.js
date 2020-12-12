@@ -2,9 +2,10 @@ import React from "react";
 import "./Css/main.css";
 import MyLink from "../../Constants/CustomLink";
 import Logo from "../Logo/Logo";
+import ListCartItems from "../ListCartItems/ListCartItems";
 
 function menu(props) {
-  const { arrLength } = props;
+  const { arrLength, item } = props;
   return (
     <div className="header-shop__wrap-menu">
       <MyLink
@@ -54,7 +55,7 @@ function menu(props) {
       <ul className="header-shop__wrap-menu__wrap-icon">
         <li className="header-shop__wrap-menu__wrap-icon-item">
           <div className="search-box">
-            <input type="text" placeholder="Search" />
+            <input type="text" placeholder="Search..." />
             <span className="search-box__span"></span>
           </div>
         </li>
@@ -76,10 +77,13 @@ function menu(props) {
           <i className="fas fa-share"></i>
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
-          <i className="fas fa-shopping-cart"></i>
+          <button className="header-shop__wrap-menu__wrap-icon-item__btn-view-cart">
+            <i className="fas fa-shopping-cart"></i>
+          </button>
           <div className="qnt-items">
             <span>{arrLength}</span>
           </div>
+          <ListCartItems item={item} />
         </li>
       </ul>
     </div>

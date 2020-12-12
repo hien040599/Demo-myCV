@@ -250,13 +250,13 @@ button:disabled {
       justify-content: space-around;
   font-size: 1.8rem;
   width: 16.66%;
-  cursor: pointer;
 }
 
 .header-shop__wrap-menu__wrap-icon > li {
   position: relative;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .header-shop__wrap-menu__wrap-icon > li:first-child {
@@ -339,7 +339,29 @@ button:disabled {
   color: #a749ff;
 }
 
-.header-shop__wrap-menu__wrap-icon > li:last-child div {
+.header-shop__wrap-menu__wrap-icon > li:nth-child(5) {
+  cursor: default;
+}
+
+.header-shop__wrap-menu__wrap-icon > li:nth-child(5):hover {
+  color: #333;
+}
+
+.header-shop__wrap-menu__wrap-icon > li:nth-child(5) button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1.8rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-shop__wrap-menu__wrap-icon > li:nth-child(5) button:hover {
+  color: #a749ff;
+}
+
+.header-shop__wrap-menu__wrap-icon > li .qnt-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -358,7 +380,7 @@ button:disabled {
   background-color: #000;
 }
 
-.header-shop__wrap-menu__wrap-icon > li:last-child div span {
+.header-shop__wrap-menu__wrap-icon > li .qnt-items span {
   font-size: 1.2rem;
   color: #fff;
 }
@@ -489,7 +511,7 @@ button:disabled {
           transform: scale(1);
 }
 
-.header-shop__wrap-menu__wrap-icon li:hover {
+.header-shop__wrap-menu__wrap-icon > li:hover {
   color: #a749ff;
 }
 

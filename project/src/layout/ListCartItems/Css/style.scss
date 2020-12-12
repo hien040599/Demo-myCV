@@ -1,0 +1,108 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.wrapper-list-cart {
+  @include pos-ab(326%, null, 0, null);
+  z-index: 9999;
+  visibility: hidden;
+  transform: rotateX(90deg);
+  opacity: 0;
+  width: 340px;
+  padding: 10px 35px;
+  transition: all 0.5s ease 0s;
+  transform-origin: center top 0;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  background-color: $whiteColor;
+  & ul {
+    overflow-y: auto;
+    max-height: 400px;
+    margin-right: -15px;
+    padding-top: 20px;
+    padding-right: 15px;
+    & li {
+      @include flex-box(space-between);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ebebeb;
+      & .wrapper-list-cart__img {
+        flex: 0 0 82px;
+        margin-right: 15px;
+        & img {
+          max-width: 100%;
+          object-fit: cover;
+        }
+      }
+      & .wrapper-list-cart__infor {
+        & h4 {
+          font-size: 1.4rem;
+          line-height: 16px;
+          margin: 0 20px 0 0;
+          & a {
+            line-height: 1.2;
+            color: $textColor;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              color: $primaryColor;
+            }
+          }
+        }
+        & p {
+          color: $textColor;
+          font-size: 1.4rem;
+          margin: 5px 0 8px;
+        }
+      }
+      & .wrapper-list-cart__infor__Characteristics {
+        margin-top: 10px;
+        & p {
+          color: $textColor;
+          font-size: 1.4rem;
+        }
+      }
+      & .wrapper-list-cart__btn-delete i {
+        cursor: pointer;
+        color: $textColor;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: $primaryColor;
+        }
+      }
+    }
+  }
+
+  &__total-price {
+    @include flex-box(space-between, center);
+    font-size: 1.4rem;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    & span {
+      color: $textColor;
+    }
+  }
+  &__btn {
+    margin-top: 23px;
+    & a {
+      text-align: center;
+      border: 1px solid $textColor;
+      font-size: 1.4rem;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 20px;
+      padding: 16px 40px 17px;
+      color: $textColor;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: $primaryColor;
+        color: $whiteColor;
+      }
+    }
+  }
+}
+
+.wrapper-list-cart__active {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0);
+}

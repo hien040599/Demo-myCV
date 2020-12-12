@@ -108,10 +108,10 @@
     @include flex-box(space-around);
     font-size: 1.8rem;
     width: 16.66%;
-    cursor: pointer;
     & > li {
       position: relative;
       transition: all 0.3s ease-in-out;
+      cursor: pointer;
       &:first-child {
         @include flex-box(center);
         margin-right: 6%;
@@ -165,7 +165,24 @@
           }
         }
       }
-      &:last-child div {
+      &:nth-child(5) {
+        cursor: default;
+        &:hover {
+          color: $textColor;
+        }
+        & button {
+          cursor: pointer;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          font-size: 1.8rem;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+      }
+      & .qnt-items {
         @include flex-box(center, center);
         position: absolute;
         top: -30%;
@@ -278,9 +295,9 @@
         top: 255%;
         transform: scale(1);
       }
-    }
-    & li:hover {
-      color: $primaryColor;
+      &:hover {
+        color: $primaryColor;
+      }
     }
   }
 }

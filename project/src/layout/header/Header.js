@@ -11,12 +11,14 @@ function Header(props) {
   useEffect(() => {
     getAllCartItem();
   }, [getAllCartItem]);
+
   useSearchBox();
+
   return (
     <header className="header-shop">
       <div className="header-shop__container">
         <div className="header-shop__container__row">
-          <Menu arrLength={item.length} />
+          <Menu arrLength={item.length} item={item} />
         </div>
       </div>
     </header>
