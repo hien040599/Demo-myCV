@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  background-color: #fff;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+button {
+  outline: none !important;
+}
+
+button:disabled {
+  cursor: no-drop !important;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row {
+  width: 100%;
+}
+
+.row .col-cart-empty {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.row .col-cart-empty__wrap-content {
+  text-align: center;
+}
+
+.row .col-cart-empty__wrap-content img {
+  width: 186px;
+  margin-top: 86px;
+  -webkit-transform: translate(-6%, 0);
+          transform: translate(-6%, 0);
+  margin-bottom: 38px;
+}
+
+.row .col-cart-empty__wrap-content a {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 30px;
+  border-radius: 3px;
+  padding: 10px 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  background-color: #333;
+}
+
+.row .col-cart-empty__wrap-content a:hover {
+  background-color: #a749ff;
+}
+
+.row .col-cart-empty__wrap-content h2 {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.3px;
+}
+/*# sourceMappingURL=style.css.map */

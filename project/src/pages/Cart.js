@@ -8,6 +8,7 @@ import {
   actGetApiCart,
   actUpdateApiCart,
 } from "../Action/index";
+import CartEmpty from "../components/CartEmpty/CartEmpty";
 
 function CartPage(props) {
   const { item, getAllCartItem, deleteCartItem, updateCartItem } = props;
@@ -23,11 +24,15 @@ function CartPage(props) {
       </section>
 
       <section>
-        <Cart
-          item={item}
-          deleteCartItem={deleteCartItem}
-          updateCartItem={updateCartItem}
-        />
+        {item.length > 0 ? (
+          <Cart
+            item={item}
+            deleteCartItem={deleteCartItem}
+            updateCartItem={updateCartItem}
+          />
+        ) : (
+          <CartEmpty />
+        )}
       </section>
 
       <section>
