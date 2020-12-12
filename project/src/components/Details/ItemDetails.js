@@ -98,6 +98,7 @@ function ItemDetails({ itemid }) {
       if (arrCart.length > 0) {
         for (const itemCart of arrCart) {
           if (
+            value.namecate === itemCart.namecate &&
             value.name === itemCart.name &&
             item.color === itemCart.color &&
             item.size === itemCart.size
