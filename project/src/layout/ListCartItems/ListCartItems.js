@@ -8,7 +8,6 @@ function ListCartItems(props) {
   let totalCart = 0;
 
   for (const value of item) {
-    console.log(value.quantity * value.price);
     let total = value.quantity * value.price;
     totalCart += total;
   }

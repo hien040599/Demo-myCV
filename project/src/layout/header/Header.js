@@ -18,7 +18,11 @@ function Header(props) {
     <header className="header-shop">
       <div className="header-shop__container">
         <div className="header-shop__container__row">
-          <Menu arrLength={item.length} item={item} deleteCartItem={deleteCartItem}/>
+          <Menu
+            arrLength={item.length}
+            item={item}
+            deleteCartItem={deleteCartItem}
+          />
         </div>
       </div>
     </header>

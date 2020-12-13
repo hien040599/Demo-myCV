@@ -23,9 +23,10 @@ const pushListRelated = (arr = []) => {
   }
 };
 
-function ItemDetails({ itemid }) {
+function ItemDetails({ itemid, getAllCartItem }) {
   const [item, setitem] = useState([]);
   const [itemqnt, setItemqnt] = useState(1);
+
   let idNumber = parseInt(itemid);
   const { products, cart } = useContext(apiContext);
   let arrCart = [...cart];
@@ -143,6 +144,7 @@ function ItemDetails({ itemid }) {
           1200,
           "notify-cart-success"
         );
+        getAllCartItem();
       }
     }
   };
