@@ -205,11 +205,11 @@ button:disabled {
 }
 
 .wrapper-list-cart__btn a {
+  position: relative;
   margin-bottom: 20px;
   text-align: center;
   font-weight: 500;
   display: block;
-  position: relative;
   cursor: pointer;
   background-color: transparent;
   font-size: 1.4rem;
