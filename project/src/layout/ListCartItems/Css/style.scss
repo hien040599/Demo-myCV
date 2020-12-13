@@ -84,18 +84,49 @@
   &__btn {
     margin-top: 23px;
     & a {
+      margin-bottom: 20px;
       text-align: center;
-      border: 1px solid $textColor;
-      font-size: 1.4rem;
       font-weight: 500;
       display: block;
-      margin-bottom: 20px;
+      position: relative;
+      cursor: pointer;
+      background-color: transparent;
+      font-size: 1.4rem;
+      line-height: 1;
       padding: 16px 40px 17px;
       color: $textColor;
-      transition: all 0.3s ease-in-out;
-      &:hover {
+      border: 1px solid $textColor;
+      border-radius: 3px;
+      transition: all 0.86s ease-in-out;
+      &::before {
         background-color: $primaryColor;
+        @include pos-ab(0, null, 0, null);
+        content: "";
+        width: 0;
+        height: 100%;
+        transition: all cubic-bezier(0.645, 0.045, 0.355, 1) 0.86s;
+        z-index: -1;
+      }
+      &::after {
+        @include pos-ab(0, null, 0, null);
+        background-color: rgba(52, 53, 56, 0.3);
+        content: "";
+        width: 0;
+        height: 100%;
+        transition: all cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        z-index: -2;
+      }
+      &:hover {
+        border: 1px solid $primaryColor;
         color: $whiteColor;
+        &::before {
+          left: 0;
+          width: 100%;
+        }
+        &::after {
+          left: 0;
+          width: 100%;
+        }
       }
     }
   }

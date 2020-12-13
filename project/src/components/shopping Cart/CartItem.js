@@ -4,9 +4,9 @@ import {
   ADD_TO_CART,
   DELETE_ITEM_FROM_CART,
   NOTIFY_ERROR_QNT,
+  REMOVE_ITEM_FROM_CART,
 } from "../../Constants/Messages";
 import * as Notify from "../../Constants/Notify";
-
 
 function CartItem(props) {
   const {
@@ -53,6 +53,16 @@ function CartItem(props) {
     }
   };
 
+  let handleRemoveitem = (idItem) => {
+    deleteCartItem(idItem);
+    Notify.toastError(
+      REMOVE_ITEM_FROM_CART,
+      "bottom-left",
+      2000,
+      "notify-cart-err"
+    );
+  };
+
   return (
     <tr>
       <td>
@@ -92,7 +102,7 @@ function CartItem(props) {
           <div>
             <i
               className="fas fa-trash-alt"
-              onClick={() => deleteCartItem(idItem)}
+              onClick={() => handleRemoveitem(idItem)}
             ></i>
           </div>
         </span>

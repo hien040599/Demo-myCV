@@ -5,7 +5,7 @@ import Logo from "../Logo/Logo";
 import ListCartItems from "../ListCartItems/ListCartItems";
 
 function menu(props) {
-  const { arrLength, item } = props;
+  const { arrLength, item, deleteCartItem } = props;
   return (
     <div className="header-shop__wrap-menu">
       <MyLink
@@ -83,7 +83,7 @@ function menu(props) {
           <div className="qnt-items">
             <span>{arrLength}</span>
           </div>
-          <ListCartItems item={item} />
+          <ListCartItems item={item} deleteCartItem={deleteCartItem} />
         </li>
       </ul>
     </div>

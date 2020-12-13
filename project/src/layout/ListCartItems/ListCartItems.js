@@ -1,8 +1,9 @@
 import React from "react";
 import "./Css/style.css";
+import MyLink from "../../Constants/CustomLink";
 
 function ListCartItems(props) {
-  const { item } = props;
+  const { item, deleteCartItem } = props;
 
   let totalCart = 0;
 
@@ -11,7 +12,7 @@ function ListCartItems(props) {
     let total = value.quantity * value.price;
     totalCart += total;
   }
-  console.log(totalCart);
+
   return (
     <div className="wrapper-list-cart">
       <ul>
@@ -34,7 +35,10 @@ function ListCartItems(props) {
               </div>
               <div className="wrapper-list-cart__btn-delete">
                 <span>
-                  <i className="far fa-times-circle"></i>
+                  <i
+                    className="far fa-times-circle"
+                    onClick={() => deleteCartItem(value.id)}
+                  ></i>
                 </span>
               </div>
             </li>
@@ -43,12 +47,12 @@ function ListCartItems(props) {
       </ul>
       <div className="wrapper-list-cart__total-price">
         <span>Total:</span>
-        <span>${totalCart}</span>
+        <span>${totalCart.toFixed(1)}</span>
       </div>
 
       <div className="wrapper-list-cart__btn">
-        <a href="google.com.vn">VIEW CART</a>
-        <a href="google.com.vn">CHECKOUT</a>
+        <MyLink lable={"VIEW CART"} to="/cart" activeExact={true} />
+        <MyLink lable={"CHECKOUT"} to="/" activeExact={true} />
       </div>
     </div>
   );
