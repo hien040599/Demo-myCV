@@ -22,98 +22,273 @@
   background: transparent;
 }
 
+%styleTagH3 {
+  letter-spacing: 0.2px;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 20px;
+  color: $textColor;
+  line-height: 30px;
+}
+
 .row {
   width: 100%;
-  & .col-checkout__infor {
-    width: 50%;
-    padding: 0 15px;
-    &__wrapper {
-      & h3 {
-        font-size: 2rem;
-        font-weight: 500;
-        margin: 0 0 20px;
-        color: $blackColor;
-        letter-spacing: 0.2px;
-        line-height: 30px;
+  & .col-checkout {
+    &__infor {
+      width: 33.33333%;
+      padding: 0 15px;
+      &__wrapper {
+        & h3 {
+          font-size: 2rem;
+          font-weight: 500;
+          margin: 0 0 20px;
+          color: $blackColor;
+          letter-spacing: 0.2px;
+          line-height: 30px;
+        }
+        &__form {
+          @for $i from 1 through 10 {
+            @if ($i == 1 $i == 2) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupSmall();
+              }
+            }
+            @if ($i == 3) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupBig();
+              }
+            }
+            @if ($i == 4) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                width: 100%;
+                padding: 0 15px;
+                margin-bottom: 20px;
+                & label {
+                  @extend %styleLabel;
+                }
+                & .abc {
+                  cursor: pointer;
+                  @extend %styleInput;
+                }
+              }
+            }
+            @if ($i == 5) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupBig(10px);
+              }
+            }
+            @if ($i == 6) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupBig();
+              }
+            }
+            @if ($i == 7) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupSmall();
+              }
+            }
+            @if ($i == 8) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupSmall();
+              }
+            }
+            @if ($i == 9) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupSmall();
+              }
+            }
+            @if ($i == 10) {
+              & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+                @include styleFormGroupSmall();
+              }
+            }
+          }
+        }
+        & h4 {
+          font-size: 1.6rem;
+          font-weight: 500;
+          line-height: 24px;
+          margin-bottom: 8px;
+        }
+        &__oder-notes {
+          padding-right: 30px;
+          & label {
+            @extend %styleLabel;
+          }
+          & textarea {
+            width: 100%;
+            outline: none;
+            font-size: 1.4rem;
+            height: 138px;
+            padding: 17px 20px;
+            color: $textColor;
+            border: 1px solid #e6e6e6;
+            background: transparent;
+          }
+        }
       }
-      &__form {
-        @for $i from 1 through 10 {
-          @if ($i == 1 $i == 2) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupSmall();
-            }
-          }
-          @if ($i == 3) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupBig();
-            }
-          }
-          @if ($i == 4) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
+    }
+
+    &__order {
+      width: 33.33333%;
+      padding: 0 15px;
+      &__wrapper {
+        & h3 {
+          @extend %styleTagH3;
+        }
+        &__item-order {
+          padding: 38px 45px 44px;
+          background: #f6f6f6;
+          border-radius: 2px;
+          &__content {
+            &__header {
+              @include flex-box(space-between, center);
               width: 100%;
-              padding: 0 15px;
-              margin-bottom: 20px;
-              & label {
-                @extend %styleLabel;
-              }
-              & .abc {
-                cursor: pointer;
-                @extend %styleInput;
+              & span {
+                padding-right: 10px;
+                font-size: 1.6em;
+                font-weight: 500;
               }
             }
-          }
-          @if ($i == 5) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupBig(10px);
+            &__body {
+              margin: 29px 0;
+              padding: 19px 0 18px;
+              border-top: 1px solid #dee0e4;
+              border-bottom: 1px solid #dee0e4;
+              & ul {
+                overflow-y: auto;
+                max-height: 120px;
+                padding-right: 10px;
+                & li {
+                  @include flex-box(space-between, center);
+                  margin: 0 0 10px;
+                  & span {
+                    font-size: 1.2rem;
+                    color: $textColor;
+                  }
+                }
+              }
+            }
+            &__footer {
+              &__shipping {
+                @include flex-box(space-between, center);
+                & span {
+                  font-size: 1.2rem;
+                  font-weight: 400;
+                  color: $textColor;
+                }
+              }
+              &__total-order {
+                @include flex-box(space-between, center);
+                margin: 18px 0 33px;
+                padding: 17px 0 19px;
+                border-top: 1px solid #dee0e4;
+                border-bottom: 1px solid #dee0e4;
+                & span {
+                  font-size: 1.6rem;
+                  font-weight: 500;
+                  color: $textColor;
+                  &:last-child {
+                    color: $primaryColor;
+                  }
+                }
+              }
             }
           }
-          @if ($i == 6) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupBig();
-            }
-          }
-          @if ($i == 7) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupSmall();
-            }
-          }
-          @if ($i == 8) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupSmall();
-            }
-          }
-          @if ($i == 9) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupSmall();
-            }
-          }
-          @if ($i == 10) {
-            & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-              @include styleFormGroupSmall();
+        }
+        &__btn {
+          margin-top: 25px;
+          & button {
+            font-weight: 600;
+            cursor: pointer;
+            line-height: 1;
+            display: block;
+            width: 100%;
+            padding: 18px 20px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: $whiteColor;
+            border: none;
+            border-radius: 50px;
+            background: none;
+            background-color: #a749ff;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              background-color: $textColor;
             }
           }
         }
       }
-      & h4 {
-        font-size: 1.6rem;
-        font-weight: 500;
-        line-height: 24px;
-        margin-bottom: 8px;
-      }
-      &__oder-notes {
-        padding-right: 30px;
-        & label {
-          @extend %styleLabel;
+    }
+
+    &__payment {
+      width: 33.33333%;
+      padding: 0 15px;
+      &__wrapper {
+        & h3 {
+          @extend %styleTagH3;
         }
-        & textarea {
-          width: 100%;
-          outline: none;
-          font-size: 1.4rem;
-          height: 138px;
-          padding: 17px 20px;
-          color: $textColor;
-          border: 1px solid #e6e6e6;
-          background: transparent;
+        &__content {
+          padding: 38px 45px 44px;
+          background: #f6f6f6;
+          border-radius: 2px;
+          &__method {
+            & p {
+              font-size: 1.4rem;
+              color: $textColor;
+              padding-bottom: 20px;
+            }
+            & .menu-payment {
+              & li {
+                @include flex-box(null, center);
+                margin: 0 0 10px;
+                & span {
+                  color: $textColor;
+                  font-size: 1.2rem;
+                  margin-left: 8px;
+                }
+                & input[type="radio"] {
+                  cursor: pointer;
+                }
+                &:last-child {
+                  position: relative;
+                  & input[type="radio"]:checked ~ .sup-menu-payment {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: rotateX(0);
+                  }
+                  & .sup-menu-payment {
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: rotateX(90deg);
+                    overflow: hidden;
+                    @include pos-ab(168%, 8%);
+                    box-shadow: #cccccc 3px 6px 16px -3px;
+                    border-radius: 2px;
+                    background-color: $whiteColor;
+                    padding: 8px 10px;
+                    transform-origin: 0 0;
+                    transition: all 0.3s linear;
+                    & li {
+                      @include flex-box(null, center);
+                      margin: 0 0 10px;
+                      & img {
+                        width: 100%;
+                        max-height: 120px;
+                        object-fit: cover;
+                      }
+                      &:nth-child(2) {
+                        border-top: 1px solid #dee0e4;
+                        border-bottom: 1px solid #dee0e4;
+                        padding: 4px 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

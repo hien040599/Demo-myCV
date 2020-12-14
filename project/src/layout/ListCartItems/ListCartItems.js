@@ -51,7 +51,7 @@ function ListCartItems(props) {
 
       <div className="wrapper-list-cart__btn">
         <MyLink lable={"VIEW CART"} to="/cart" activeExact={true} />
-        <MyLink lable={"CHECKOUT"} to="/" activeExact={true} />
+        <MyLink lable={"CHECKOUT"} to="/checkout" activeExact={true} />
       </div>
     </div>
   );

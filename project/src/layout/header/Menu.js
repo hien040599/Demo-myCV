@@ -74,7 +74,7 @@ function menu(props) {
           <i className="far fa-heart"></i>
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
-          <i className="fas fa-share"></i>
+          <i className="fas fa-random"></i>
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
           <button className="header-shop__wrap-menu__wrap-icon-item__btn-view-cart">
