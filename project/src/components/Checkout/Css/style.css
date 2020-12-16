@@ -446,28 +446,38 @@ button:disabled {
 .row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child input[type="radio"]:checked ~ .sup-menu-payment {
   opacity: 1;
   visibility: visible;
-  -webkit-transform: rotateX(0);
-          transform: rotateX(0);
+  -webkit-animation-duration: 0.75s;
+          animation-duration: 0.75s;
+  -webkit-animation-duration: calc(var(--animate-duration) * 0.75);
+          animation-duration: calc(var(--animate-duration) * 0.75);
+  -webkit-animation: bounceInDown 0.5s;
+          animation: bounceInDown 0.5s;
 }
 
 .row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: rotateX(90deg);
-          transform: rotateX(90deg);
   overflow: hidden;
   position: absolute;
-  top: 168%;
-  left: 8%;
+  top: 410%;
+  right: -17%;
+  left: -17%;
   -webkit-box-shadow: #cccccc 3px 6px 16px -3px;
           box-shadow: #cccccc 3px 6px 16px -3px;
   border-radius: 2px;
   background-color: #fff;
   padding: 8px 10px;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li {
@@ -477,19 +487,95 @@ button:disabled {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 0 10px;
 }
 
-.row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li img {
+.row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li label span {
+  cursor: pointer;
+  display: block;
+  padding: 4px;
+}
+
+.row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li label img {
   width: 100%;
-  max-height: 120px;
+  height: 46px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li:nth-child(2) {
-  border-top: 1px solid #dee0e4;
-  border-bottom: 1px solid #dee0e4;
-  padding: 4px 0;
+.row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li label input[type="radio"] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.row .col-checkout__payment__wrapper__content__method .menu-payment li:last-child .sup-menu-payment li label input[type="radio"]:checked + span {
+  border: 1px solid #0984e3;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+@-webkit-keyframes bounceInDown {
+  0%,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -8%, 0);
+    transform: translate3d(0, -8%, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+@keyframes bounceInDown {
+  0%,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -8%, 0);
+    transform: translate3d(0, -8%, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
 /*# sourceMappingURL=style.css.map */

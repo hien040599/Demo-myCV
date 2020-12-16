@@ -24,7 +24,7 @@ function LoginForm(props) {
       .trim("This field may not contain spaces")
       .strict()
       .min(3, "This field must be greater than 3 characters")
-      .max(6, "This field must be less than 6 characters"),
+      .max(30, "This field must be less than 30 characters"),
   });
 
   return (

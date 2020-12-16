@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Directional from "../../layout/Directional/Directional";
 import "./Css/style.css";
 import anh1 from "../../images/Visa-Brand-Markvbm_blugrad01.jpg";
 import anh2 from "../../images/6756548_preview.png";
-import anh3 from "../../images/5-2.jpg";
+import anh3 from "../../images/techcom.png";
 import CheckOutItem from "./CheckOutItem";
+import * as Notify from "../../Constants/Notify";
+import { NOTIFY_ERROR_PATMENT_METHOD } from "../../Constants/Messages";
 
 function CheckOut({ item }) {
+  const [Checked, setChecked] = useState([]);
+
+  let handleChangeState = () => {
+    setChecked([...Checked, "checked", "checked"]);
+  };
+
+  let handleChangeStateFirst = () => {
+    setChecked([]);
+  };
+
+  let handleSubmit = () => {
+    Checked.length === 0
+      ? Notify.toastError(
+          NOTIFY_ERROR_PATMENT_METHOD,
+          "top-center",
+          2000,
+          "notify-cart-err"
+        )
+      : console.log("success !!!");
+  };
+
   let totalCart = 0;
 
   for (const value of item) {
@@ -99,6 +122,7 @@ function CheckOut({ item }) {
           </div>
 
           <div className="col-checkout__payment">
+            {Notify.toastContainer("top-center", 1200)}
             <div className="col-checkout__payment__wrapper">
               <h3>Payment method</h3>
               <div className="col-checkout__payment__wrapper__content">
@@ -106,28 +130,63 @@ function CheckOut({ item }) {
                   <p>Please choose a payment method</p>
                   <ul className="menu-payment">
                     <li>
-                      <input name="payment" type="radio" />
+                      <input
+                        name="payment"
+                        type="radio"
+                        onClick={() => handleChangeState()}
+                      />
                       <span>Payment on delivery</span>
                     </li>
                     <li>
-                      <input name="payment" type="radio" />
+                      <input
+                        name="payment"
+                        type="radio"
+                        onClick={() => handleChangeStateFirst()}
+                      />
                       <span>Payment via credit card</span>
 
                       <ul className="sup-menu-payment">
                         <li>
-                          <input name="method" type="radio" />
+                          <label htmlFor="method-visa">
+                            <input
+                              id="method-visa"
+                              type="radio"
+                              name="method"
+                              onClick={() => handleChangeState()}
+                            />
 
-                          <img src={anh1} alt="payment-method" />
+                            <span>
+                              <img src={anh1} alt="payment-method" />
+                            </span>
+                          </label>
                         </li>
                         <li>
-                          <input name="method" type="radio" />
+                          <label htmlFor="method-paypal">
+                            <input
+                              id="method-paypal"
+                              type="radio"
+                              name="method"
+                              onClick={() => handleChangeState()}
+                            />
 
-                          <img src={anh2} alt="payment-method" />
+                            <span>
+                              <img src={anh2} alt="payment-method" />
+                            </span>
+                          </label>
                         </li>
                         <li>
-                          <input name="method" type="radio" />
+                          <label htmlFor="method-bank">
+                            <input
+                              id="method-bank"
+                              type="radio"
+                              name="method"
+                              onClick={() => handleChangeState()}
+                            />
 
-                          <img src={anh3} alt="payment-method" />
+                            <span>
+                              <img src={anh3} alt="payment-method" />
+                            </span>
+                          </label>
                         </li>
                       </ul>
                     </li>
@@ -173,7 +232,7 @@ function CheckOut({ item }) {
                 </div>
               </div>
               <div className="col-checkout__order__wrapper__btn">
-                <button>Place Order</button>
+                <button onClick={() => handleSubmit()}>Place Order</button>
               </div>
             </div>
           </div>

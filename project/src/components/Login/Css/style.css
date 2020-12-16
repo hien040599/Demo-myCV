@@ -318,6 +318,7 @@ button:disabled {
   height: 16px;
   width: 18px;
   margin: 0;
+  cursor: pointer;
 }
 
 .row .wrapp-content__wrap-form__text__remember span {
