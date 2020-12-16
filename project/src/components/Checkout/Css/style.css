@@ -184,10 +184,6 @@ button:disabled {
   margin-bottom: 20px;
 }
 
-.row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(5) input[type="text"] {
-  margin-bottom: 10px;
-}
-
 .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(6) {
   width: 50%;
   padding: 0 15px;

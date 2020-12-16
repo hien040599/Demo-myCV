@@ -1,10 +1,21 @@
 import React from "react";
 
 function InputFieldCheckOut(props) {
-  const { field, form, type, label, placeholder, disable } = props;
+  const {
+    field,
+    form,
+    type,
+    label,
+    placeholder,
+    disable,
+    state,
+    placeholderInput,
+    idInput,
+  } = props;
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
+  console.log(field);
   return (
     <div className="col-checkout__infor__wrapper__form-group">
       {label && <label htmlFor={name}>{label}</label>}

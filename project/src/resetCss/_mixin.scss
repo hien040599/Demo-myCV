@@ -24,7 +24,7 @@
   }
 }
 
-@mixin styleFormGroupBig($mb: null) {
+@mixin styleFormGroupBig() {
   width: 100%;
   padding: 0 15px;
   margin-bottom: 20px;
@@ -33,6 +33,5 @@
   }
   & input[type="text"] {
     @extend %styleInput;
-    margin-bottom: $mb;
   }
 }

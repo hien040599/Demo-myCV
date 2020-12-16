@@ -22,6 +22,7 @@ function CheckOut({ item }) {
     phone: "",
     postcode: "",
     email: "",
+    address: "",
   };
 
   let handleChangeState = () => {
@@ -99,17 +100,12 @@ function CheckOut({ item }) {
                           </select>
                         </div>
 
-                        <div className="col-checkout__infor__wrapper__form-group">
-                          <label>Street Address</label>
-                          <input
-                            placeholder="House number and street name"
-                            type="text"
-                          />
-                          <input
-                            placeholder="Apartment, suite, unit etc."
-                            type="text"
-                          />
-                        </div>
+                        <FastField
+                          name="address"
+                          component={inputfield}
+                          label=" Address"
+                          type="text"
+                        />
 
                         <FastField
                           name="towncity"

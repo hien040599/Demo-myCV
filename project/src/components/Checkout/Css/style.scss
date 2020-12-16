@@ -74,7 +74,7 @@
             }
             @if ($i == 5) {
               & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
-                @include styleFormGroupBig(10px);
+                @include styleFormGroupBig();
               }
             }
             @if ($i == 6) {
