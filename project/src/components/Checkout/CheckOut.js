@@ -7,9 +7,22 @@ import anh3 from "../../images/techcom.png";
 import CheckOutItem from "./CheckOutItem";
 import * as Notify from "../../Constants/Notify";
 import { NOTIFY_ERROR_PATMENT_METHOD } from "../../Constants/Messages";
+import inputfield from "../../components/InputField/InputFieldCheckOut";
+import { FastField, Form, Formik } from "formik";
+import { validateForm } from "../../Constants/ValidationCheckout";
 
 function CheckOut({ item }) {
   const [Checked, setChecked] = useState([]);
+  const initialValue = {
+    firstname: "",
+    lastname: "",
+    companyname: "",
+    towncity: "",
+    statecounty: "",
+    phone: "",
+    postcode: "",
+    email: "",
+  };
 
   let handleChangeState = () => {
     setChecked([...Checked, "checked", "checked"]);
@@ -20,14 +33,14 @@ function CheckOut({ item }) {
   };
 
   let handleSubmit = () => {
-    Checked.length === 0
-      ? Notify.toastError(
-          NOTIFY_ERROR_PATMENT_METHOD,
-          "top-center",
-          2000,
-          "notify-cart-err"
-        )
-      : console.log("success !!!");
+    if (Checked.length === 0) {
+      Notify.toastError(
+        NOTIFY_ERROR_PATMENT_METHOD,
+        "top-center",
+        2000,
+        "notify-cart-err"
+      );
+    }
   };
 
   let totalCart = 0;
@@ -45,71 +58,99 @@ function CheckOut({ item }) {
           <div className="col-checkout__infor">
             <div className="col-checkout__infor__wrapper">
               <h3>Billing Details</h3>
-              <div className="row col-checkout__infor__wrapper__form">
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>First Name</label>
-                  <input type="text" />
-                </div>
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Last Name</label>
-                  <input type="text" />
-                </div>
+              <Formik
+                initialValues={initialValue}
+                validationSchema={validateForm}
+              >
+                {(formikprops) => {
+                  return (
+                    <Form>
+                      <div className="row col-checkout__infor__wrapper__form">
+                        <FastField
+                          name="firstname"
+                          component={inputfield}
+                          label="First Name"
+                          type="text"
+                        />
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Company Name</label>
-                  <input type="text" />
-                </div>
+                        <FastField
+                          name="lastname"
+                          component={inputfield}
+                          label="Last Name"
+                          type="text"
+                        />
+                        <FastField
+                          name="companyname"
+                          component={inputfield}
+                          label="Company Name"
+                          type="text"
+                        />
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Country</label>
-                  <select className="abc">
-                    <option>Select a country</option>
-                    <option>Azerbaijan</option>
-                    <option>Bahamas</option>
-                    <option>Bahrain</option>
-                    <option>Bangladesh</option>
-                    <option>Barbados</option>
-                  </select>
-                </div>
+                        <div className="col-checkout__infor__wrapper__form-group">
+                          <label>Country</label>
+                          <select className="abc">
+                            <option>Select a country</option>
+                            <option>Azerbaijan</option>
+                            <option>Bahamas</option>
+                            <option>Bahrain</option>
+                            <option>Bangladesh</option>
+                            <option>Barbados</option>
+                          </select>
+                        </div>
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Street Address</label>
-                  <input
-                    placeholder="House number and street name"
-                    type="text"
-                  />
-                  <input
-                    placeholder="Apartment, suite, unit etc."
-                    type="text"
-                  />
-                </div>
+                        <div className="col-checkout__infor__wrapper__form-group">
+                          <label>Street Address</label>
+                          <input
+                            placeholder="House number and street name"
+                            type="text"
+                          />
+                          <input
+                            placeholder="Apartment, suite, unit etc."
+                            type="text"
+                          />
+                        </div>
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Town / City</label>
-                  <input type="text" />
-                </div>
+                        <FastField
+                          name="towncity"
+                          component={inputfield}
+                          label="Town / City"
+                          type="text"
+                        />
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>State / County</label>
-                  <input type="text" />
-                </div>
+                        <FastField
+                          name="statecounty"
+                          component={inputfield}
+                          label="State / County"
+                          type="text"
+                        />
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Phone</label>
-                  <input type="text" />
-                </div>
+                        <FastField
+                          name="phone"
+                          component={inputfield}
+                          label="Phone"
+                          type="text"
+                        />
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Postcode / ZIP</label>
-                  <input type="text" />
-                </div>
+                        <FastField
+                          name="postcode"
+                          component={inputfield}
+                          label="Postcode / ZIP"
+                          type="text"
+                        />
 
-                <div className="col-checkout__infor__wrapper__form-group">
-                  <label>Email Address</label>
-                  <input type="text" />
-                </div>
-              </div>
+                        <FastField
+                          name="email"
+                          component={inputfield}
+                          label="Email Address"
+                          type="text"
+                        />
+                      </div>
+                    </Form>
+                  );
+                }}
+              </Formik>
+
               <h4>Additional information</h4>
               <div className="col-checkout__infor__wrapper__oder-notes">
                 <label>Order notes</label>

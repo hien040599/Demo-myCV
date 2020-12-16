@@ -66,7 +66,7 @@
                 & label {
                   @extend %styleLabel;
                 }
-                & .abc {
+                & select {
                   cursor: pointer;
                   @extend %styleInput;
                 }
@@ -100,6 +100,19 @@
             @if ($i == 10) {
               & .col-checkout__infor__wrapper__form-group:nth-child(#{$i}) {
                 @include styleFormGroupSmall();
+              }
+            }
+          }
+          &-group {
+            &__errors-notify {
+              border: 1px solid red !important;
+            }
+            &__notify {
+              &-error {
+                & p {
+                  margin: 8px 0;
+                  color: #f33a58;
+                }
               }
             }
           }

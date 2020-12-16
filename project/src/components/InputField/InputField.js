@@ -5,9 +5,7 @@ function InputField(props) {
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
-  // console.log(showError)
   return (
-    <div className="warapper">
       <div className="form-group">
         <input
           type={type}
@@ -30,7 +28,6 @@ function InputField(props) {
           ""
         )}
       </div>
-    </div>
   );
 }
 

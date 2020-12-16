@@ -92,7 +92,7 @@ button:disabled {
   display: block;
 }
 
-.row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(1) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(2) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(3) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(4) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(4) .abc, .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(5) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(6) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(7) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(8) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(9) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(10) input[type="text"] {
+.row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(1) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(2) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(3) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(4) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(4) select, .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(5) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(6) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(7) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(8) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(9) input[type="text"], .row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(10) input[type="text"] {
   width: 100%;
   outline: none;
   border-radius: 3px;
@@ -168,7 +168,7 @@ button:disabled {
   margin-bottom: 20px;
 }
 
-.row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(4) .abc {
+.row .col-checkout__infor__wrapper__form .col-checkout__infor__wrapper__form-group:nth-child(4) select {
   cursor: pointer;
 }
 
@@ -246,6 +246,15 @@ button:disabled {
   width: 50%;
   padding: 0 15px;
   margin-bottom: 20px;
+}
+
+.row .col-checkout__infor__wrapper__form-group__errors-notify {
+  border: 1px solid red !important;
+}
+
+.row .col-checkout__infor__wrapper__form-group__notify-error p {
+  margin: 8px 0;
+  color: #f33a58;
 }
 
 .row .col-checkout__infor__wrapper h4 {
