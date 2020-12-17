@@ -2,9 +2,10 @@ import React from "react";
 import "./Css/style.css";
 import Directional from "../../layout/Directional/Directional";
 import MyLink from "../../Constants/CustomLink";
-import inputfield from "../../components/InputField/InputField";
+import inputfield from "../../components/CustomField/InputField";
 import { FastField, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { validateForm } from "../../Constants/ValidationLogin";
 
 function LoginForm(props) {
   const initialValue = {
@@ -12,20 +13,20 @@ function LoginForm(props) {
     password: "",
   };
 
-  const validateForm = Yup.object().shape({
-    username: Yup.string()
-      .required("Username is a required field")
-      .trim("This field may not contain spaces")
-      .strict()
-      .min(3, "This field must be greater than 3 characters")
-      .max(30, "This field must be less than 30 characters"),
-    password: Yup.string()
-      .required("Password is a required field")
-      .trim("This field may not contain spaces")
-      .strict()
-      .min(3, "This field must be greater than 3 characters")
-      .max(30, "This field must be less than 30 characters"),
-  });
+  // const validateForm = Yup.object().shape({
+  //   username: Yup.string()
+  //     .required("Username is a required field")
+  //     .trim("This field may not contain spaces")
+  //     .strict()
+  //     .min(3, "This field must be greater than 3 characters")
+  //     .max(30, "This field must be less than 30 characters"),
+  //   password: Yup.string()
+  //     .required("Password is a required field")
+  //     .trim("This field may not contain spaces")
+  //     .strict()
+  //     .min(3, "This field must be greater than 3 characters")
+  //     .max(30, "This field must be less than 30 characters"),
+  // });
 
   return (
     <div className="warapper">

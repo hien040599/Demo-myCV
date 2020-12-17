@@ -31,12 +31,9 @@ export const validateForm = Yup.object().shape({
     .strict()
     .min(3, "This field must be greater than 3 characters")
     .max(30, "This field must be less than 30 characters"),
-  phone: Yup.string()
+  phone: Yup.number()
     .required("Phone is a required field")
-    .trim("This field may not contain spaces")
-    .strict()
-    .min(3, "This field must be greater than 3 characters")
-    .max(30, "This field must be less than 30 characters"),
+    .min(3, "Must be more than 3 characters"),
   postcode: Yup.string()
     .required("postcode / Zip is a required field")
     .trim("This field may not contain spaces")
@@ -49,9 +46,15 @@ export const validateForm = Yup.object().shape({
     .strict()
     .email("this field should be email"),
   address: Yup.string()
-    .required("First name is a required field")
+    .required("Address is a required field")
     .trim("This field may not contain spaces")
     .strict()
     .min(3, "This field must be greater than 3 characters")
+    .max(30, "This field must be less than 30 characters"),
+  countryId: Yup.string()
+    .required("Country is a required field")
+    .trim("This field may not contain spaces")
+    .strict()
+    .min(1, "This field must be greater than 1 characters")
     .max(30, "This field must be less than 30 characters"),
 });

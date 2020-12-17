@@ -7,9 +7,11 @@ import anh3 from "../../images/techcom.png";
 import CheckOutItem from "./CheckOutItem";
 import * as Notify from "../../Constants/Notify";
 import { NOTIFY_ERROR_PATMENT_METHOD } from "../../Constants/Messages";
-import inputfield from "../../components/InputField/InputFieldCheckOut";
+import inputfield from "../CustomField/InputFieldCheckOut";
+import SelectField from "../CustomField/SelectField";
 import { FastField, Form, Formik } from "formik";
 import { validateForm } from "../../Constants/ValidationCheckout";
+import { COUNTRY_SELECT_OPTIONS } from "../../Constants/CountrySelect";
 
 function CheckOut({ item }) {
   const [Checked, setChecked] = useState([]);
@@ -23,6 +25,7 @@ function CheckOut({ item }) {
     postcode: "",
     email: "",
     address: "",
+    countryId: "",
   };
 
   let handleChangeState = () => {
@@ -65,6 +68,8 @@ function CheckOut({ item }) {
                 validationSchema={validateForm}
               >
                 {(formikprops) => {
+                  const { values } = formikprops;
+                  console.log(values);
                   return (
                     <Form>
                       <div className="row col-checkout__infor__wrapper__form">
@@ -88,17 +93,13 @@ function CheckOut({ item }) {
                           type="text"
                         />
 
-                        <div className="col-checkout__infor__wrapper__form-group">
-                          <label>Country</label>
-                          <select className="abc">
-                            <option>Select a country</option>
-                            <option>Azerbaijan</option>
-                            <option>Bahamas</option>
-                            <option>Bahrain</option>
-                            <option>Bangladesh</option>
-                            <option>Barbados</option>
-                          </select>
-                        </div>
+                        <FastField
+                          name="countryId"
+                          component={SelectField}
+                          label="Country"
+                          placeholder="Select a country"
+                          options={COUNTRY_SELECT_OPTIONS}
+                        />
 
                         <FastField
                           name="address"

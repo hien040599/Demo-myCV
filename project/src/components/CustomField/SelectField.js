@@ -1,29 +1,16 @@
 import React from "react";
 
-function InputFieldCheckOut(props) {
-  const {
-    field,
-    form,
-    type,
-    label,
-    placeholder,
-    disable,
-    state,
-    placeholderInput,
-    idInput,
-  } = props;
+function SelectField(props) {
+  const { field, form, label, disable, options } = props;
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
-  console.log(field);
   return (
     <div className="col-checkout__infor__wrapper__form-group">
       {label && <label htmlFor={name}>{label}</label>}
-      <input
-        type={type}
+      <select
         id={name}
         {...field}
-        placeholder={placeholder}
         disabled={disable}
         required
         className={
@@ -31,7 +18,16 @@ function InputFieldCheckOut(props) {
           touched[name] &&
           "col-checkout__infor__wrapper__form-group__errors-notify"
         }
-      />
+      >
+        <option value="">Select a country</option>
+        {options.map((element, index) => {
+          return (
+            <option value={element.value} key={index}>
+              {element.label}
+            </option>
+          );
+        })}
+      </select>
       {showError && (
         <div className="col-checkout__infor__wrapper__form-group__notify-error">
           <p>{errors[name]}</p>
@@ -46,4 +42,4 @@ function InputFieldCheckOut(props) {
   );
 }
 
-export default InputFieldCheckOut;
+export default SelectField;
