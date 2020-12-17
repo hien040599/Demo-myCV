@@ -1,5 +1,7 @@
 import * as Yup from "yup";
 
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
 export const validateForm = Yup.object().shape({
   firstname: Yup.string()
     .required("First name is a required field")
@@ -31,9 +33,11 @@ export const validateForm = Yup.object().shape({
     .strict()
     .min(3, "This field must be greater than 3 characters")
     .max(30, "This field must be less than 30 characters"),
-  phone: Yup.number()
+  phone: Yup.string()
     .required("Phone is a required field")
-    .min(3, "Must be more than 3 characters"),
+    .matches(phoneRegExp, "Phone number is not valid")
+    .min(10, "Invalid phone number")
+    .max(10, "Invalid phone number"),
   postcode: Yup.string()
     .required("postcode / Zip is a required field")
     .trim("This field may not contain spaces")
