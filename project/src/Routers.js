@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Collection from "./pages/Collection";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import ContactPage from "./pages/Contact";
 
 const routers = [
   {
@@ -43,6 +44,11 @@ const routers = [
     path: "/checkout",
     exact: true,
     main: () => <Checkout />,
+  },
+  {
+    path: "/contact",
+    exact: true,
+    main: () => <ContactPage />,
   },
   {
     path: "",

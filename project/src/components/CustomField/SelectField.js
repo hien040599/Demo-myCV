@@ -33,11 +33,6 @@ function SelectField(props) {
           <p>{errors[name]}</p>
         </div>
       )}
-      {touched[name] === true && errors[name] === undefined ? (
-        <div className="col-checkout__infor__wrapper__form-group__notify-success"></div>
-      ) : (
-        ""
-      )}
     </div>
   );
 }

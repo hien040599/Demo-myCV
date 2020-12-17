@@ -1,14 +1,13 @@
 import React from "react";
 
-function InputFieldCheckOut(props) {
+function TextareaFieldContact(props) {
   const { field, form, type, label, placeholder, disable } = props;
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
   return (
-    <div className="col-checkout__infor__wrapper__form-group">
-      {label && <label htmlFor={name}>{label}</label>}
-      <input
+    <div className="col-contact-form__content__form-group">
+      <textarea
         type={type}
         id={name}
         {...field}
@@ -18,11 +17,12 @@ function InputFieldCheckOut(props) {
         className={
           errors[name] &&
           touched[name] &&
-          "col-checkout__infor__wrapper__form-group__errors-notify"
+          "col-contact-form__content__form-group__errors-notify"
         }
       />
+      {label && <label htmlFor={name}>{label}</label>}
       {showError && (
-        <div className="col-checkout__infor__wrapper__form-group__notify-error">
+        <div className="col-contact-form__content__form-group__notify-error">
           <p>{errors[name]}</p>
         </div>
       )}
@@ -30,4 +30,4 @@ function InputFieldCheckOut(props) {
   );
 }
 
-export default InputFieldCheckOut;
+export default TextareaFieldContact;
