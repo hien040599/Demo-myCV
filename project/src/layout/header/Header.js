@@ -7,6 +7,7 @@ import { actDeleteApiCart, actGetApiCart } from "../../Action";
 
 function Header(props) {
   const { item, getAllCartItem, deleteCartItem } = props;
+  let arrCart = JSON.parse(localStorage.getItem("CART"));
 
   useEffect(() => {
     getAllCartItem();
@@ -19,8 +20,8 @@ function Header(props) {
       <div className="header-shop__container">
         <div className="header-shop__container__row">
           <Menu
-            arrLength={item.length}
-            item={item}
+            arrLength={arrCart.length > 0 ? arrCart.length : item.length}
+            item={arrCart.length > 0 ? arrCart : item}
             deleteCartItem={deleteCartItem}
           />
         </div>

@@ -15,8 +15,8 @@ export const collectionContext = createContext();
 function CollectionProvider({ children }) {
   const [listItems, dispatch] = useReducer(CollectionReducer, []);
   const [paginate, setpaginate] = useState({
-    _page: 1,
-    _limit: 6,
+    page: 1,
+    limit: 6,
   });
   const arrItems = useRef([]);
   useEffect(() => {
@@ -35,7 +35,7 @@ function CollectionProvider({ children }) {
   }, [paginate]);
 
   const handlePaginationPage = (newPage) => {
-    setpaginate({ ...paginate, _page: newPage });
+    setpaginate({ ...paginate, page: newPage });
   };
 
   const collectionContextdata = {
@@ -43,7 +43,7 @@ function CollectionProvider({ children }) {
     dispatch,
     ItemsDefault: arrItems.current,
     handlePaginationPage,
-    pageNumber: paginate._page,
+    pageNumber: paginate.page,
   };
   return (
     <collectionContext.Provider value={collectionContextdata}>

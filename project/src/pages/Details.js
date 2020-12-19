@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../layout/header/Header";
 import Footer from "../layout/footer/Footer";
 import ItemDetails from "../components/Details/ItemDetails";
@@ -7,17 +7,24 @@ import { connect } from "react-redux";
 import { actGetApiCart } from "../Action";
 
 function Details(props) {
-  const { match, item, getAllCartItem } = props;
+  const { match, getAllCartItem, listCart } = props;
+
+  useEffect(() => {
+    getAllCartItem();
+  }, [getAllCartItem]);
+
+  localStorage.setItem("CART", JSON.stringify(listCart));
 
   return (
     <div className="wrapper">
       <GetApi>
         <section>
-          <Header item={item} />
+          <Header />
         </section>
 
         <section>
           <ItemDetails
+            cart={listCart}
             itemid={match.params.id}
             getAllCartItem={getAllCartItem}
           />
@@ -33,7 +40,7 @@ function Details(props) {
 
 let mapStateToProps = (state) => {
   return {
-    item: state.Cart,
+    listCart: state.Cart,
   };
 };
 

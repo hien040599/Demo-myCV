@@ -23,12 +23,12 @@ const pushListRelated = (arr = []) => {
   }
 };
 
-function ItemDetails({ itemid, getAllCartItem }) {
+function ItemDetails({ itemid, getAllCartItem, cart }) {
   const [item, setitem] = useState([]);
   const [itemqnt, setItemqnt] = useState(1);
 
   let idNumber = parseInt(itemid);
-  const { products, cart } = useContext(apiContext);
+  const { products } = useContext(apiContext);
   let arrCart = [...cart];
   let arrNew = [...products];
   let count = 0;
@@ -133,18 +133,21 @@ function ItemDetails({ itemid, getAllCartItem }) {
       }
 
       if (flag) {
-        CallApi(
-          "cart",
-          { ...value, ...item, quantity: itemqnt, id: uuidv4() },
-          "POST"
-        );
-        Notify.toastSuccess(
-          ADD_TO_CART,
-          "bottom-left",
-          1200,
-          "notify-cart-success"
-        );
-        getAllCartItem();
+        let postItemInCartInApi = async () => {
+          await CallApi(
+            "cart",
+            { ...value, ...item, quantity: itemqnt, id: uuidv4() },
+            "POST"
+          );
+          Notify.toastSuccess(
+            ADD_TO_CART,
+            "bottom-left",
+            1200,
+            "notify-cart-success"
+          );
+          getAllCartItem();
+        };
+        postItemInCartInApi();
       }
     }
   };
