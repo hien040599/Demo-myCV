@@ -20,8 +20,8 @@ function Header(props) {
       <div className="header-shop__container">
         <div className="header-shop__container__row">
           <Menu
-            arrLength={arrCart.length > 0 ? arrCart.length : item.length}
-            item={arrCart.length > 0 ? arrCart : item}
+            arrLength={arrCart ? arrCart.length : item.length}
+            item={arrCart ? arrCart : item}
             deleteCartItem={deleteCartItem}
           />
         </div>
