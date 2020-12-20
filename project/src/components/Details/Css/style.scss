@@ -51,7 +51,7 @@
         margin: 40px 0 34px 0;
         &__qnt {
           border: 1px solid #e8e8e8;
-          & input[type="text"] {
+          & input[type="number"] {
             outline: none;
             font-size: 1.4rem;
             width: 32px;
@@ -60,6 +60,9 @@
             color: #8f8f8f;
             border: none;
             background: transparent;
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+            }
           }
           & button {
             cursor: pointer;

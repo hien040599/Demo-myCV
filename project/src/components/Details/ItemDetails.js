@@ -46,6 +46,17 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
     let value = e.target.value;
     setitem({ ...item, [name]: value });
   };
+
+  let handleChangeQnt = (e) => {
+    let value = e.target.value;
+    console.log(itemqnt);
+    setItemqnt(Number(value));
+  };
+
+  if (itemqnt === 0) {
+    setItemqnt("");
+  }
+
   let changeIncreaseItem = () => {
     setItemqnt(itemqnt + 1);
     Notify.toastSuccess(
@@ -246,9 +257,9 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
                             -
                           </button>
                           <input
-                            type="text"
+                            type="number"
                             value={itemqnt}
-                            onChange={(e) => handleChange(e)}
+                            onChange={(e) => handleChangeQnt(e)}
                           ></input>
                           <button onClick={() => changeIncreaseItem()}>
                             +

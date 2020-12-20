@@ -107,6 +107,7 @@ button:disabled {
 }
 
 .row .col-contact-details__content {
+  height: 100%;
   padding: 120px 70px 116px 90px;
   background-color: #f3f3f3;
   border-radius: 2px;

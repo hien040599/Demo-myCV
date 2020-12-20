@@ -30,6 +30,7 @@ function Header(props) {
   );
 }
 let mapStateToProps = (state) => {
+  localStorage.setItem("CART", JSON.stringify(state.Cart));
   return {
     item: state.Cart,
   };
