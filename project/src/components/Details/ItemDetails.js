@@ -14,6 +14,7 @@ import {
   NOTIFY_ERROR,
   NOTIFY_ERROR_SIZE,
   NOTIFY_ERROR_COLOR,
+  NOTIFY_ERROR_QNT_INVALID,
 } from "../../Constants/Messages";
 import { v4 as uuidv4 } from "uuid";
 
@@ -49,7 +50,7 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
 
   let handleChangeQnt = (e) => {
     let value = e.target.value;
-    console.log(itemqnt);
+    console.log("state: ", typeof itemqnt);
     setItemqnt(Number(value));
   };
 
@@ -144,21 +145,30 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
       }
 
       if (flag) {
-        let postItemInCartInApi = async () => {
-          await CallApi(
-            "cart",
-            { ...value, ...item, quantity: itemqnt, id: uuidv4() },
-            "POST"
+        if (typeof itemqnt === "string") {
+          Notify.toastError(
+            NOTIFY_ERROR_QNT_INVALID,
+            "top-center",
+            2000,
+            "notify-cart-err"
           );
-          Notify.toastSuccess(
-            ADD_TO_CART,
-            "bottom-left",
-            1200,
-            "notify-cart-success"
-          );
-          getAllCartItem();
-        };
-        postItemInCartInApi();
+        } else {
+          let postItemInCartInApi = async () => {
+            await CallApi(
+              "cart",
+              { ...value, ...item, quantity: itemqnt, id: uuidv4() },
+              "POST"
+            );
+            Notify.toastSuccess(
+              ADD_TO_CART,
+              "bottom-left",
+              1200,
+              "notify-cart-success"
+            );
+            getAllCartItem();
+          };
+          postItemInCartInApi();
+        }
       }
     }
   };

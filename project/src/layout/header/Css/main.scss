@@ -125,10 +125,12 @@
           height: 46px;
           transform: translateX(-12px);
         }
-        &:hover ul {
-          opacity: 1;
-          visibility: visible;
-          transform: rotateX(0);
+        &:hover {
+          & ul {
+            opacity: 1;
+            visibility: visible;
+            transform: rotateX(0);
+          }
         }
         ul {
           @include pos-ab(182%, null, 0, null);
