@@ -153,7 +153,7 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
             "notify-cart-err"
           );
         } else {
-          let postItemInCartInApi = async () => {
+          let postItemInCartApi = async () => {
             await CallApi(
               "cart",
               { ...value, ...item, quantity: itemqnt, id: uuidv4() },
@@ -167,7 +167,7 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
             );
             getAllCartItem();
           };
-          postItemInCartInApi();
+          postItemInCartApi();
         }
       }
     }
