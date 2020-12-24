@@ -22,9 +22,13 @@ function useSearchBox(props) {
         }
       );
 
-      $(".header-shop__wrap-menu__wrap-icon .header-shop__wrap-menu__wrap-icon-item:nth-child(2)").on("mouseover", () =>{
-        $(".wrapper-list-cart__active").removeClass("wrapper-list-cart__active");
-      })
+      $(
+        ".header-shop__wrap-menu__wrap-icon .header-shop__wrap-menu__wrap-icon-item:nth-child(2)"
+      ).on("mouseover", () => {
+        $(".wrapper-list-cart__active").removeClass(
+          "wrapper-list-cart__active"
+        );
+      });
     });
 
     setdata(qr);
