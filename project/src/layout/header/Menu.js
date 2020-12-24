@@ -5,7 +5,8 @@ import Logo from "../Logo/Logo";
 import ListCartItems from "../ListCartItems/ListCartItems";
 
 function menu(props) {
-  const { arrLength, item, deleteCartItem } = props;
+  const { arrLength, item, deleteCartItem, items } = props;
+
   return (
     <div className="header-shop__wrap-menu">
       <MyLink
@@ -72,6 +73,9 @@ function menu(props) {
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
           <i className="far fa-heart"></i>
+          {items === 0 ? "" : <div className="qnt-items">
+            <span>{items}</span>
+          </div>}
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
           <i className="fas fa-random"></i>
@@ -80,9 +84,9 @@ function menu(props) {
           <button className="header-shop__wrap-menu__wrap-icon-item__btn-view-cart">
             <i className="fas fa-shopping-cart"></i>
           </button>
-          <div className="qnt-items">
+          {arrLength === 0 ? "" : <div className="qnt-items">
             <span>{arrLength}</span>
-          </div>
+          </div>}
           <ListCartItems item={item} deleteCartItem={deleteCartItem} />
         </li>
       </ul>

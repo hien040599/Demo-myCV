@@ -3,15 +3,26 @@ import Menu from "./Menu";
 import "./Css/main.css";
 import useSearchBox from "../../hooks/useSearchBox";
 import { connect } from "react-redux";
-import { actDeleteApiCart, actGetApiCart } from "../../Action";
+import {
+  actDeleteApiCart,
+  actGetApiCart,
+  actGetApiWishlist,
+} from "../../Action";
 
 function Header(props) {
-  const { item, getAllCartItem, deleteCartItem } = props;
+  const {
+    item,
+    getAllCartItem,
+    deleteCartItem,
+    items,
+    getAllWishlistItem,
+  } = props;
   let arrCart = JSON.parse(localStorage.getItem("CART"));
 
   useEffect(() => {
     getAllCartItem();
-  }, [getAllCartItem]);
+    getAllWishlistItem();
+  }, [getAllCartItem, getAllWishlistItem]);
 
   useSearchBox();
 
@@ -20,6 +31,7 @@ function Header(props) {
       <div className="header-shop__container">
         <div className="header-shop__container__row">
           <Menu
+            items={items.length}
             arrLength={arrCart ? arrCart.length : item.length}
             item={arrCart ? arrCart : item}
             deleteCartItem={deleteCartItem}
@@ -31,8 +43,10 @@ function Header(props) {
 }
 let mapStateToProps = (state) => {
   localStorage.setItem("CART", JSON.stringify(state.Cart));
+
   return {
     item: state.Cart,
+    items: state.Wishlist,
   };
 };
 
@@ -40,6 +54,7 @@ let mapDispatchtoProps = (dispatch, props) => {
   return {
     getAllCartItem: () => dispatch(actGetApiCart()),
     deleteCartItem: (idItem) => dispatch(actDeleteApiCart(idItem)),
+    getAllWishlistItem: () => dispatch(actGetApiWishlist()),
   };
 };
 

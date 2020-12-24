@@ -28,3 +28,24 @@ export let actRenderApi = (item) => {
     payload: item,
   };
 };
+
+export let actGetApiWishlist = () => {
+  return async (dispatch) => {
+    let result = await CallApi("wishlist", null);
+    dispatch(actRenderApiWishlist(result.data));
+  };
+};
+
+export let actDeleteApiWishlist = (id) => {
+  return async (dispatch) => {
+    await CallApi(`wishlist/${id}`, null, "DELETE");
+    dispatch(actGetApiWishlist());
+  };
+};
+
+export let actRenderApiWishlist = (item) => {
+  return {
+    type: Type.GET_WISHLIST_API,
+    payload: item,
+  };
+};

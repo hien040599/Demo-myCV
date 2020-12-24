@@ -1,27 +1,9 @@
 import React from "react";
+import CallApi from "../../API/CallApi";
 import MyLink from "../../Constants/CustomLink";
-
-let toSlug = (str) => {
-  str = str.toLowerCase();
-
-  str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, "a");
-  str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, "e");
-  str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, "i");
-  str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, "o");
-  str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, "u");
-  str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, "y");
-  str = str.replace(/(đ)/g, "d");
-
-  str = str.replace(/([^0-9a-z-\s])/g, "");
-
-  str = str.replace(/(\s+)/g, "-");
-
-  str = str.replace(/^-+/g, "");
-
-  str = str.replace(/-+$/g, "");
-
-  return str;
-};
+import { toSlug } from "../../Constants/Slug";
+import * as Notify from "../../Constants/Notify";
+import { ADD_TO_WISHLIST } from "../../Constants/Messages";
 
 function Item(props) {
   const { name, image, price, itemid } = props;
@@ -50,8 +32,19 @@ function Item(props) {
     return result;
   };
 
+  let handleAddItemInWishList = (itemid, name, price, image) => {
+    CallApi("wishlist", { id: itemid, name, price, image }, "POST");
+    Notify.toastSuccess(
+      ADD_TO_WISHLIST,
+      "bottom-left",
+      1200,
+      "notify-cart-success"
+    );
+  };
+
   return (
     <div className="column">
+      {Notify.toastContainer("bottom-left", 1200)}
       <div className="wrapp-content-card">
         <div className="img-card">
           <img src={image} alt="img" />
@@ -69,7 +62,12 @@ function Item(props) {
           </div>
           <div className="warapp-infor-card__icon">
             <button>
-              <i className="far fa-heart"></i>
+              <i
+                className="far fa-heart"
+                onClick={() =>
+                  handleAddItemInWishList(itemid, name, price, image)
+                }
+              ></i>
             </button>
           </div>
         </div>

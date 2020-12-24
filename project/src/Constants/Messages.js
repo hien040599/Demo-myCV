@@ -7,3 +7,5 @@ export const NOTIFY_ERROR = "Please choose the color and size of the item";
 export const REMOVE_ITEM_FROM_CART = "Removed From Cart";
 export const NOTIFY_ERROR_PATMENT_METHOD = "Please choose a payment method";
 export const NOTIFY_ERROR_QNT_INVALID = "Number of invalid items please check again";
+export const ADD_TO_WISHLIST = "Added To Wishlist";
+export const DELETE_ITEM_FROM_WISHLIST = "Removed From Wishlist";

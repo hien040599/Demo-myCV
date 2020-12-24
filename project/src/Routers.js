@@ -8,6 +8,7 @@ import Collection from "./pages/Collection";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/Contact";
+import WishlistPage from "./pages/Wishlist";
 
 const routers = [
   {
@@ -49,6 +50,11 @@ const routers = [
     path: "/contact",
     exact: true,
     main: () => <ContactPage />,
+  },
+  {
+    path: "/wishlist",
+    exact: true,
+    main: () => <WishlistPage />,
   },
   {
     path: "",
