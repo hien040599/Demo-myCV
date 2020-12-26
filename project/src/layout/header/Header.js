@@ -17,7 +17,9 @@ function Header(props) {
     items,
     getAllWishlistItem,
   } = props;
+
   let arrCart = JSON.parse(localStorage.getItem("CART"));
+  let arrWishlist = JSON.parse(localStorage.getItem("WISHLIST"));
 
   useEffect(() => {
     getAllCartItem();
@@ -31,7 +33,7 @@ function Header(props) {
       <div className="header-shop__container">
         <div className="header-shop__container__row">
           <Menu
-            items={items.length}
+            items={arrWishlist ? arrWishlist.length : items.length}
             arrLength={arrCart ? arrCart.length : item.length}
             item={arrCart ? arrCart : item}
             deleteCartItem={deleteCartItem}
@@ -43,6 +45,7 @@ function Header(props) {
 }
 let mapStateToProps = (state) => {
   localStorage.setItem("CART", JSON.stringify(state.Cart));
+  localStorage.setItem("WISHLIST", JSON.stringify(state.Wishlist));
 
   return {
     item: state.Cart,

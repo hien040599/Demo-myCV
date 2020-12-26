@@ -13,8 +13,6 @@ function Details(props) {
     getAllCartItem();
   }, [getAllCartItem]);
 
-  localStorage.setItem("CART", JSON.stringify(listCart));
-
   return (
     <div className="wrapper">
       <GetApi>

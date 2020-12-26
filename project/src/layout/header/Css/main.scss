@@ -167,6 +167,15 @@
           }
         }
       }
+      &:nth-child(3) {
+        & a {
+          color: $textColor;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+      }
       &:nth-child(5) {
         cursor: default;
         &:hover {

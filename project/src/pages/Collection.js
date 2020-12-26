@@ -4,9 +4,11 @@ import Header from "../layout/header/Header";
 import Colection from "../components/Collection/Collection";
 import useSelectSort from "../hooks/useSelectSort";
 import ColectionProvider from "../context/CollectionContext";
+import { connect } from "react-redux";
+import { actGetApiWishlist } from "../Action";
 
 
-function Collection(props) {
+function Collection({getAllWishlistItem}) {
   useSelectSort()
   return (
     <div className="wrapper">
@@ -16,7 +18,7 @@ function Collection(props) {
       </section>
 
       <section>
-        <Colection />
+        <Colection getAllWishlistItem={getAllWishlistItem} />
       </section>
 
       <section>
@@ -27,4 +29,19 @@ function Collection(props) {
   );
 }
 
-export default Collection;
+let mapStateToProps = (state) => {
+  localStorage.setItem("WISHLIST", JSON.stringify(state.Wishlist));
+
+  return {
+    items: state.Wishlist,
+  };
+};
+
+let mapDispatchtoProps = (dispatch, props) => {
+  return {
+    getAllWishlistItem: () => dispatch(actGetApiWishlist()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchtoProps)(Collection);
+

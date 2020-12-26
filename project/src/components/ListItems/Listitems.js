@@ -6,7 +6,7 @@ import brand1 from "../../images/tải xuống.png";
 import brand2 from "../../images/tải xuống (1).png";
 import brand3 from "../../images/tải xuống (2).png";
 
-function Listitems(props) {
+function Listitems({ getAllWishlistItem }) {
   const { products } = useContext(apiContext);
   let arrNew = [...products].splice(0, 8);
 
@@ -23,11 +23,13 @@ function Listitems(props) {
         {arrNew.map((item, index) => {
           return (
             <Item
+            a={item}
               key={index}
               itemid={item.id}
               name={item.name}
               price={item.price}
               image={item.image}
+              getAllWishlistItem={getAllWishlistItem}
             />
           );
         })}

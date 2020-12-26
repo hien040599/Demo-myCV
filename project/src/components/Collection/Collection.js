@@ -17,7 +17,7 @@ import {
   SORT_LOW_TO_HIGH,
 } from "../../Reducer/type";
 
-function Collection(props) {
+function Collection({getAllWishlistItem}) {
   const {
     listItems,
     dispatch,
@@ -209,6 +209,7 @@ function Collection(props) {
                   price={item.price}
                   image={item.image}
                   itemid={item.id}
+                  getAllWishlistItem={getAllWishlistItem}
                 />
               );
             })}

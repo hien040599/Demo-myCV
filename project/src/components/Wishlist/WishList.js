@@ -4,7 +4,13 @@ import "./Css/style.css";
 import MyLink from "../../Constants/CustomLink";
 import WishListItem from "./WishListItem";
 
-function Wishlist({ items, deleteWishlistItem }) {
+function Wishlist({ items, deleteWishlistItem, getAllWishlistItem }) {
+  let handleClear = async () => {
+    items.forEach((value) => {
+      deleteWishlistItem(value.id);
+    });
+  };
+
   return (
     <div className="wrapper">
       <Directional namePage={"wishlist"} />
@@ -51,7 +57,7 @@ function Wishlist({ items, deleteWishlistItem }) {
                 to={"/collection"}
                 activeExact={true}
               />
-              <button>Clear Wishlist</button>
+              <button onClick={() => handleClear()}>Clear Wishlist</button>
             </div>
           </div>
         </div>

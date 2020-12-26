@@ -116,22 +116,26 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
             item.color === itemCart.color &&
             item.size === itemCart.size
           ) {
-            CallApi(
-              `cart/${itemCart.id}`,
-              {
-                ...value,
-                ...item,
-                quantity: itemCart.quantity + itemqnt,
-                id: itemCart.id,
-              },
-              "PUT"
-            );
-            Notify.toastSuccess(
-              ADD_TO_CART,
-              "bottom-left",
-              1200,
-              "notify-cart-success"
-            );
+            let putApiItemInCart = async () => {
+              await CallApi(
+                `cart/${itemCart.id}`,
+                {
+                  ...value,
+                  ...item,
+                  quantity: itemCart.quantity + itemqnt,
+                  id: itemCart.id,
+                },
+                "PUT"
+              );
+              Notify.toastSuccess(
+                ADD_TO_CART,
+                "bottom-left",
+                1200,
+                "notify-cart-success"
+              );
+              getAllCartItem();
+            };
+            putApiItemInCart();
             break;
           } else {
             i += 1;

@@ -19,7 +19,11 @@ function WishlistPage({ items, getAllWishlistItem, deleteWishlistItem }) {
 
       <section>
         {items.length > 0 ? (
-          <Wishlist items={items} deleteWishlistItem={deleteWishlistItem} />
+          <Wishlist
+            items={items}
+            deleteWishlistItem={deleteWishlistItem}
+            getAllWishlistItem={getAllWishlistItem}
+          />
         ) : (
           <WishListEmpty />
         )}

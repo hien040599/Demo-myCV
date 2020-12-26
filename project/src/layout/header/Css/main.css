@@ -339,6 +339,16 @@ button:disabled {
   color: #a749ff;
 }
 
+.header-shop__wrap-menu__wrap-icon > li:nth-child(3) a {
+  color: #333;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-shop__wrap-menu__wrap-icon > li:nth-child(3) a:hover {
+  color: #a749ff;
+}
+
 .header-shop__wrap-menu__wrap-icon > li:nth-child(5) {
   cursor: default;
 }

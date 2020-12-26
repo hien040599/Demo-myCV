@@ -5,8 +5,10 @@ import Listitems from "../components/ListItems/Listitems";
 import Footer from "../layout/footer/Footer";
 import Header from "../layout/header/Header";
 import GetApi from "../context/GetApi";
+import { connect } from "react-redux";
+import { actGetApiWishlist } from "../Action";
 
-function Home(props) {
+function Home({ getAllWishlistItem }) {
   return (
     <div className="wrapper">
       <GetApi>
@@ -18,7 +20,7 @@ function Home(props) {
         <section>
           <Introdution />
 
-          <Listitems />
+          <Listitems getAllWishlistItem={getAllWishlistItem} />
         </section>
 
         <section>
@@ -29,4 +31,18 @@ function Home(props) {
   );
 }
 
-export default Home;
+let mapStateToProps = (state) => {
+  localStorage.setItem("WISHLIST", JSON.stringify(state.Wishlist));
+
+  return {
+    items: state.Wishlist,
+  };
+};
+
+let mapDispatchtoProps = (dispatch, props) => {
+  return {
+    getAllWishlistItem: () => dispatch(actGetApiWishlist()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchtoProps)(Home);

@@ -72,10 +72,18 @@ function menu(props) {
           </ul>
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
-          <i className="far fa-heart"></i>
-          {items === 0 ? "" : <div className="qnt-items">
-            <span>{items}</span>
-          </div>}
+          <MyLink
+            lable={<i className="far fa-heart"></i>}
+            to="/wishlist"
+            activeExact={true}
+          />
+          {items === 0 ? (
+            ""
+          ) : (
+            <div className="qnt-items">
+              <span>{items}</span>
+            </div>
+          )}
         </li>
         <li className="header-shop__wrap-menu__wrap-icon-item">
           <i className="fas fa-random"></i>
@@ -84,9 +92,13 @@ function menu(props) {
           <button className="header-shop__wrap-menu__wrap-icon-item__btn-view-cart">
             <i className="fas fa-shopping-cart"></i>
           </button>
-          {arrLength === 0 ? "" : <div className="qnt-items">
-            <span>{arrLength}</span>
-          </div>}
+          {arrLength === 0 ? (
+            ""
+          ) : (
+            <div className="qnt-items">
+              <span>{arrLength}</span>
+            </div>
+          )}
           <ListCartItems item={item} deleteCartItem={deleteCartItem} />
         </li>
       </ul>
