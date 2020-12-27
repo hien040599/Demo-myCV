@@ -46,10 +46,10 @@ function menu(props) {
             </ul>
           </li>
           <li>
-            <a href="google.com.vn">About Us</a>
+            <MyLink lable={"About"} to="/about" activeExact={true} />
           </li>
           <li>
-            <a href="google.com.vn">Contact Us</a>
+            <MyLink lable={"Contact"} to="/contact" activeExact={true} />
           </li>
         </ul>
       </nav>

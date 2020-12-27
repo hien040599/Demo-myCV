@@ -1,0 +1,93 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.row {
+  width: 100%;
+  & .col-introduce {
+    width: 30%;
+    padding: 0 15px;
+    &__img {
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 86px;
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    &-detail {
+      width: 70%;
+      padding: 0 15px;
+      &__content {
+        padding: 0 68px;
+        & h2 {
+          width: 100%;
+          text-align: center;
+          letter-spacing: 0.3px;
+          font-size: 2rem;
+          font-weight: bold;
+          color: $textColor;
+          margin-bottom: 28px;
+        }
+        & p {
+          color: $textColor;
+          font-size: 1.6rem;
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+
+  & .col-experience-show {
+    width: 50%;
+    padding: 0 15px;
+    &__wrapp-content {
+      & h3 {
+        width: 86%;
+        position: relative;
+        color: $whiteColor;
+        background-color: #4f90cd;
+        padding: 3px 0 3px 26px;
+        margin: 12px 0 24px;
+        font-size: 1.8rem;
+        border-radius: 14px;
+        &::after {
+          content: "";
+          @include pos-ab(null, 1rem, null, 2px);
+          width: 0;
+          height: 0;
+          border: 8px solid transparent;
+          border-top-color: #4f90cd;
+          border-bottom: 0;
+          border-left: 0;
+          margin-left: 1px;
+          margin-bottom: -8px;
+        }
+      }
+      & p {
+        color: $textColor;
+        font-size: 1.4rem;
+        letter-spacing: 0.1px;
+      }
+      & ul li {
+        font-size: 1.4rem;
+        color: $textColor;
+      }
+      &__text {
+        &__list {
+          @include flex-box();
+          & div:first-child {
+            color: $blackColor;
+            font-weight: bold;
+            padding-left: 8px;
+            margin-right: 50px;
+          }
+          & p {
+            line-height: 2.2;
+          }
+        }
+      }
+    }
+  }
+}

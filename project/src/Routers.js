@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ContactPage from "./pages/Contact";
 import WishlistPage from "./pages/Wishlist";
+import AboutPage from "./pages/About";
 
 const routers = [
   {
@@ -55,6 +56,11 @@ const routers = [
     path: "/wishlist",
     exact: true,
     main: () => <WishlistPage />,
+  },
+  {
+    path: "/about",
+    exact: true,
+    main: () => <AboutPage />,
   },
   {
     path: "",
