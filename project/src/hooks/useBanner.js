@@ -86,12 +86,12 @@ function useBanner(props) {
       if (actAfter.length === 1) {
         animateBanner(
           ".activity",
-          "animate__animated animate__backOutLeft",
+          "animate__animated animate__fadeOut",
           ".animate__animated",
-          "animate__animated animate__backInRight",
-          ".animate__backInRight",
+          "animate__animated animate__fadeInUp",
+          ".animate__fadeInUp",
           actAfter,
-          "animate__backInRight"
+          "animate__fadeInUp"
         );
         animateBanner(
           ".show-banner",
@@ -106,12 +106,12 @@ function useBanner(props) {
       } else {
         animateBannerloop(
           ".activity",
-          "animate__animated animate__backOutLeft",
+          "animate__animated animate__fadeOut",
           ".animate__animated",
           ".wp-banner__wp-imgs_img:first-child",
-          "animate__animated animate__backInRight",
-          ".animate__backInRight",
-          "animate__backInRight"
+          "animate__animated animate__fadeInUp",
+          ".animate__fadeInUp",
+          "animate__fadeInUp"
         );
         animateBannerloop(
           ".show-banner",
@@ -127,6 +127,73 @@ function useBanner(props) {
     }, 3800);
 
     let qr = $(function () {
+      $(".wp-banner").on("mouseover", () => {
+        clearInterval(autoPlay);
+      });
+
+      $(".wp-banner").on("mouseleave", () => {
+        autoPlay = setInterval(function () {
+          animateBtn(
+            ".btn-banner",
+            "animate__animated animate__bounceOutUp",
+            "animate__animated animate__bounceInUp"
+          );
+
+          let actAfter = $(".activity").next();
+          let showAfter = $(".show-banner").next();
+
+          let pos = $(".check").index() + 1;
+          if (pos === 3) {
+            pos = 0;
+          }
+
+          $(".wp-banner__list li").removeClass("check");
+          $(".wp-banner__list li:nth-child(" + ++pos + ")").addClass("check");
+
+          if (actAfter.length === 1) {
+            animateBanner(
+              ".activity",
+              "animate__animated animate__fadeOut",
+              ".animate__animated",
+              "animate__animated animate__fadeInUp",
+              ".animate__fadeInUp",
+              actAfter,
+              "animate__fadeInUp"
+            );
+            animateBanner(
+              ".show-banner",
+              "animate__animated animate__flipOutX",
+              ".animate__flipOutX",
+              "animate__animated animate__flipInX",
+              ".animate__flipInX",
+              showAfter,
+              "animate__flipInX",
+              "show-banner"
+            );
+          } else {
+            animateBannerloop(
+              ".activity",
+              "animate__animated animate__fadeOut",
+              ".animate__animated",
+              ".wp-banner__wp-imgs_img:first-child",
+              "animate__animated animate__fadeInUp",
+              ".animate__fadeInUp",
+              "animate__fadeInUp"
+            );
+            animateBannerloop(
+              ".show-banner",
+              "animate__animated animate__flipOutX",
+              ".animate__flipOutX",
+              ".wp-banner__wp-sales__sale:first-child",
+              "animate__animated animate__flipInX",
+              ".animate__flipInX",
+              "animate__flipInX",
+              "show-banner"
+            );
+          }
+        }, 3800);
+      });
+
       $(".btn-banner")
         .addClass("animate__animated animate__bounceInUp")
         .one("webkitAnimationEnd", function () {
@@ -155,12 +222,12 @@ function useBanner(props) {
         if (actAfter.length === 1) {
           animateBanner(
             ".activity",
-            "animate__animated animate__backOutLeft",
+            "animate__animated animate__fadeOut",
             ".animate__animated",
-            "animate__animated animate__backInRight",
-            ".animate__backInRight",
+            "animate__animated animate__fadeInUp",
+            ".animate__fadeInUp",
             actAfter,
-            "animate__backInRight"
+            "animate__fadeInUp"
           );
           animateBanner(
             ".show-banner",
@@ -172,31 +239,15 @@ function useBanner(props) {
             "animate__flipInX",
             "show-banner"
           );
-          // $(".show-banner")
-          //   .addClass("animate__animated animate__flipOutX")
-          //   .one("webkitAnimationEnd", function (e) {
-          //     $(".animate__flipOutX").removeClass(
-          //       "animate__animated animate__flipOutX"
-          //     );
-          //     $(this).removeClass("show-banner");
-          //   });
-          // showAfter
-          //   .addClass("animate__animated animate__flipInX")
-          //   .addClass("show-banner")
-          //   .one("webkitAnimationEnd", function (e) {
-          //     $(".animate__flipInX")
-          //       .addClass("show-banner")
-          //       .removeClass("animate__flipInX");
-          //   });
         } else {
           animateBannerloop(
             ".activity",
-            "animate__animated animate__backOutLeft",
+            "animate__animated animate__fadeOut",
             ".animate__animated",
             ".wp-banner__wp-imgs_img:first-child",
-            "animate__animated animate__backInRight",
-            ".animate__backInRight",
-            "animate__backInRight"
+            "animate__animated animate__fadeInUp",
+            ".animate__fadeInUp",
+            "animate__fadeInUp"
           );
           animateBannerloop(
             ".show-banner",
@@ -280,12 +331,12 @@ function useBanner(props) {
 
         animateBannerloop(
           ".activity",
-          "animate__animated animate__backOutLeft",
+          "animate__animated animate__fadeOut",
           ".animate__animated",
           ".wp-banner__wp-imgs_img:nth-child(" + indexEl + ")",
-          "animate__animated animate__backInRight",
-          ".animate__backInRight",
-          "animate__backInRight"
+          "animate__animated animate__fadeInUp",
+          ".animate__fadeInUp",
+          "animate__fadeInUp"
         );
         animateBtn(
           ".btn-banner",

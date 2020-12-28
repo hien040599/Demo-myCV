@@ -25,10 +25,8 @@ function menu(props) {
             <MyLink lable={"Collection"} to="/collection" activeExact={true} />
           </li>
           <li>
-            <a href="google.com.vn">
-              Pages
-              <i className="icon-arrow-down fas fa-angle-down"></i>
-            </a>
+            Pages
+            <i className="icon-arrow-down fas fa-angle-down"></i>
             <ul className="header-shop__wrap-menu__list__small-list">
               <li>
                 <MyLink lable={"Home"} to="/" activeExact={true} />
