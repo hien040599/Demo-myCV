@@ -102,7 +102,7 @@ function Item(props) {
           >
             <i className="far fa-heart"></i>
             <span className="wrapp-content-card__link__tooltip">
-              Add to wishlist{" "}
+              Add to wishlist
             </span>
           </span>
         </div>
