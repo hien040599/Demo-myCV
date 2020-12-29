@@ -179,35 +179,40 @@ button:disabled {
   color: #333;
 }
 
-.wrapp-content-card .warapp-infor-card__icon button {
-  font-size: 1.6rem;
-  display: inline-block;
-  margin: 4px 0 0 10px;
-  color: #929292;
-  border: none;
-  background: none;
-  cursor: pointer;
-  -webkit-transition: all ease-in-out 0.3s;
-  transition: all ease-in-out 0.3s;
+.wrapp-content-card .warapp-infor-card__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.wrapp-content-card .warapp-infor-card__icon button:hover {
-  color: #a749ff;
+.wrapp-content-card .warapp-infor-card__icon span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapp-content-card .warapp-infor-card__icon span i {
+  color: #ffbe00;
 }
 
 .wrapp-content-card__link {
   position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
   font-size: 1.6rem;
-  opacity: 0;
   text-decoration: none;
   line-height: 48px;
   height: 48px;
   color: #fff;
   background-color: #a749ff;
   border: none;
-  left: 0;
-  right: 0;
-  top: 100%;
   text-align: center;
   -webkit-transition: all linear 0.3s;
   transition: all linear 0.3s;
@@ -218,8 +223,63 @@ button:disabled {
   background-color: #000;
 }
 
-.wrapp-content-card:hover .wrapp-content-card__link {
+.wrapp-content-card__link:nth-child(3) {
+  border-right: 1px solid #fff;
+  cursor: pointer;
+  right: 80%;
+}
+
+.wrapp-content-card__link:nth-child(3)::after {
+  position: absolute;
+  top: -28%;
+  left: 12%;
+  content: "";
+  opacity: 0;
+  visibility: hidden;
+  border: 10px solid red;
+  border-color: transparent;
+  border-top: 8px solid #000;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.wrapp-content-card__link:nth-child(3):hover .wrapp-content-card__link__tooltip {
   opacity: 1;
+  visibility: visible;
+}
+
+.wrapp-content-card__link:nth-child(3):hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrapp-content-card__link__tooltip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  line-height: 0;
+  position: absolute;
+  top: -64%;
+  width: 186%;
+  height: 40%;
+  border-radius: 3px;
+  left: 10%;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #000;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.wrapp-content-card:hover .wrapp-content-card__link {
   top: 86%;
 }
 

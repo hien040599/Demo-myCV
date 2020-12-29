@@ -349,15 +349,15 @@ button:disabled {
   color: #a749ff;
 }
 
-.header-shop__wrap-menu__wrap-icon > li:nth-child(5) {
+.header-shop__wrap-menu__wrap-icon > li:nth-child(4) {
   cursor: default;
 }
 
-.header-shop__wrap-menu__wrap-icon > li:nth-child(5):hover {
+.header-shop__wrap-menu__wrap-icon > li:nth-child(4):hover {
   color: #333;
 }
 
-.header-shop__wrap-menu__wrap-icon > li:nth-child(5) button {
+.header-shop__wrap-menu__wrap-icon > li:nth-child(4) button {
   cursor: pointer;
   border: none;
   outline: none;
@@ -367,7 +367,7 @@ button:disabled {
   transition: all 0.3s ease-in-out;
 }
 
-.header-shop__wrap-menu__wrap-icon > li:nth-child(5) button:hover {
+.header-shop__wrap-menu__wrap-icon > li:nth-child(4) button:hover {
   color: #a749ff;
 }
 

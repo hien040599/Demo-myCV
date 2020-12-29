@@ -78,43 +78,73 @@
         color: $textColor;
       }
     }
-    &__icon button {
-      font-size: 1.6rem;
-      display: inline-block;
-      margin: 4px 0 0 10px;
-      color: #929292;
-      border: none;
-      background: none;
-      cursor: pointer;
-      transition: all ease-in-out 0.3s;
-      &:hover {
-        color: $primaryColor;
+    &__icon {
+      @include flex-box(null, center);
+      & span {
+        @include flex-box(null, center);
+        & i {
+          color: #ffbe00;
+        }
       }
     }
   }
   &__link {
-    position: absolute;
+    @include pos-ab(100%, 0, 0);
     font-size: 1.6rem;
-    opacity: 0;
     text-decoration: none;
     line-height: 48px;
     height: 48px;
     color: $whiteColor;
     background-color: $primaryColor;
     border: none;
-    left: 0;
-    right: 0;
-    top: 100%;
     text-align: center;
     transition: all linear 0.3s;
     &:hover {
       color: $whiteColor;
       background-color: $blackColor;
     }
+    &:nth-child(3) {
+      border-right: 1px solid $whiteColor;
+      cursor: pointer;
+      right: 80%;
+      &::after {
+        @include pos-ab(-28%, 12%);
+        content: "";
+        opacity: 0;
+        visibility: hidden;
+        border: 10px solid red;
+        border-color: transparent;
+        border-top: 8px solid $blackColor;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover .wrapp-content-card__link__tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+      &:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &__tooltip {
+      @include flex-box(center, center);
+      opacity: 0;
+      visibility: hidden;
+      line-height: 0;
+      position: absolute;
+      top: -64%;
+      width: 186%;
+      height: 40%;
+      border-radius: 3px;
+      left: 10%;
+      font-size: 1.2rem;
+      color: $whiteColor;
+      background-color: $blackColor;
+      transition: all 0.3s ease-in-out;
+    }
   }
   &:hover {
     .wrapp-content-card__link {
-      opacity: 1;
       top: 86%;
     }
   }

@@ -23,13 +23,13 @@ function Listitems({ getAllWishlistItem }) {
         {arrNew.map((item, index) => {
           return (
             <Item
-            a={item}
               key={index}
               itemid={item.id}
               name={item.name}
               price={item.price}
               image={item.image}
               getAllWishlistItem={getAllWishlistItem}
+              rating={item.rating}
             />
           );
         })}

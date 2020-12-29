@@ -210,6 +210,7 @@ function Collection({getAllWishlistItem}) {
                   image={item.image}
                   itemid={item.id}
                   getAllWishlistItem={getAllWishlistItem}
+                  rating={item.rating}
                 />
               );
             })}

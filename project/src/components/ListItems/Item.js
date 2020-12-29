@@ -9,7 +9,7 @@ import {
 } from "../../Constants/Messages";
 
 function Item(props) {
-  const { name, image, price, itemid, getAllWishlistItem } = props;
+  const { name, image, price, itemid, getAllWishlistItem, rating } = props;
   const arrParams = [
     {
       name,
@@ -70,6 +70,20 @@ function Item(props) {
     }
   };
 
+  let starRating = () => {
+    let result = [];
+
+    for (let i = 0; i < rating; i++) {
+      result.push(<i key={i} className="star-rating fas fa-star"></i>);
+    }
+
+    for (let j = 0; j < 5 - rating; j++) {
+      result.push(<i key={5 + j} className="star-rating far fa-star"></i>);
+    }
+
+    return result;
+  };
+
   return (
     <div className="column">
       {Notify.toastContainer("bottom-left", 1200)}
@@ -77,11 +91,20 @@ function Item(props) {
         <div className="img-card">
           <img src={image} alt="img" />
           <MyLink
-            lable={<span>View Item</span>}
+            lable={<span>View Details</span>}
             to={"/details/" + toSlug(name) + "." + itemid}
             activeExact={true}
             className="wrapp-content-card__link"
           />
+          <span
+            className="wrapp-content-card__link"
+            onClick={() => handleAddItemInWishList(itemid, name, image, price)}
+          >
+            <i className="far fa-heart"></i>
+            <span className="wrapp-content-card__link__tooltip">
+              Add to wishlist{" "}
+            </span>
+          </span>
         </div>
         <div className="warapp-infor-card">
           <div className="warapp-infor-card__infor">
@@ -89,14 +112,7 @@ function Item(props) {
             <p>${price}</p>
           </div>
           <div className="warapp-infor-card__icon">
-            <button>
-              <i
-                className="far fa-heart"
-                onClick={() =>
-                  handleAddItemInWishList(itemid, name, image, price)
-                }
-              ></i>
-            </button>
+            <span>{starRating()}</span>
           </div>
         </div>
       </div>
