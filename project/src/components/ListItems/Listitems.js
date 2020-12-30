@@ -5,6 +5,7 @@ import Item from "./Item";
 import brand1 from "../../images/tải xuống.png";
 import brand2 from "../../images/tải xuống (1).png";
 import brand3 from "../../images/tải xuống (2).png";
+import MyLink from "../../Constants/CustomLink";
 
 function Listitems({ getAllWishlistItem }) {
   const { products } = useContext(apiContext);
@@ -37,7 +38,11 @@ function Listitems({ getAllWishlistItem }) {
 
       <div className="row">
         <div className="row__link-view-more">
-          <a href="google.com.vn">VIEW MORE ITEMS</a>
+          <MyLink
+            lable={"VIEW MORE ITEMS"}
+            to={"/collection"}
+            activeExact={true}
+          />
         </div>
       </div>
 
