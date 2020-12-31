@@ -70,7 +70,7 @@ function CartItem(props) {
       </td>
       <td>
         <div className="content-cart__name">
-          <MyLink lable={name} to={"/"} activeExact={true} />
+          <MyLink lable={name} to={"/collection"} activeExact={true} />
           <p>Color: {color}</p>
           <p>Size: {size}</p>
         </div>
