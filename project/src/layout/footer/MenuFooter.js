@@ -38,34 +38,34 @@ function MenuFooter(props) {
       </ul>
 
       <ul className="footer-cart__list">
-        <li className="footer-cart__list__item">About us</li>
+        <li className="footer-cart__list__item">USEFUL LINKS</li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">About us</a>
+          <a href="google.com.vn">Returns</a>
         </li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">Store location</a>
+          <a href="google.com.vn">Support Policy</a>
         </li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">Contact</a>
+          <a href="google.com.vn">Size guide</a>
         </li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">Order tracking</a>
+          <a href="google.com.vn">FAQs</a>
         </li>
       </ul>
 
       <ul className="footer-cart__list">
-        <li className="footer-cart__list__item">About us</li>
+        <li className="footer-cart__list__item">FOLLOW US</li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">About us</a>
+          <a href="google.com.vn">Facebook</a>
         </li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">Store location</a>
+          <a href="google.com.vn">Twitter</a>
         </li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">Contact</a>
+          <a href="google.com.vn">Instagram</a>
         </li>
         <li className="footer-cart__list__item">
-          <a href="google.com.vn">Order tracking</a>
+          <a href="google.com.vn">Youtube</a>
         </li>
       </ul>
 

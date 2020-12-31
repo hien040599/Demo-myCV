@@ -6,6 +6,7 @@ import brand1 from "../../images/tải xuống.png";
 import brand2 from "../../images/tải xuống (1).png";
 import brand3 from "../../images/tải xuống (2).png";
 import MyLink from "../../Constants/CustomLink";
+import DealItem from "../DealItem/DealItem";
 
 function Listitems({ getAllWishlistItem }) {
   const { products } = useContext(apiContext);
@@ -45,7 +46,7 @@ function Listitems({ getAllWishlistItem }) {
           />
         </div>
       </div>
-
+<DealItem/>
       <div className="row">
         <div className="wrapp-email-sub">
           <div className="wrapp-email-sub__form-sub">

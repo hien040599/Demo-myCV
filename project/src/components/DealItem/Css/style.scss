@@ -1,0 +1,123 @@
+@import "../../../resetCss/variable";
+@import "../../../resetCss/mixin";
+@import "../../../resetCss/reset";
+
+.wrapper-deal {
+  margin: 0 -203px;
+  &__content {
+    background-image: url(../../../images/deal-bg.4a078e54.png);
+    height: 640px;
+    width: 1520px;
+    background-size: cover;
+    background-position: center center;
+    @include flex-box(center, center);
+    flex-direction: column;
+    margin-top: 38px;
+    &__label {
+      font-size: 2.8rem;
+      color: $whiteColor;
+      background-color: $textColor;
+      line-height: 38px;
+      font-weight: 400;
+      padding: 7px 15px;
+      margin: 0;
+      margin-bottom: 10px;
+      display: inline-block;
+      border-radius: 2px;
+    }
+    & h2 {
+      font-size: 6.2rem;
+      color: $textColor;
+      font-weight: 600;
+      text-transform: capitalize;
+      line-height: normal;
+      margin: 0;
+      display: inline-block;
+    }
+    &__time-deal {
+      font-size: 2rem;
+      color: $textColor;
+      letter-spacing: 0.3px;
+    }
+    &__time {
+      @include flex-box(null, center);
+      margin: 18px 0 14px 0;
+      &__deal {
+        padding: 0;
+        margin: 0;
+        margin-right: 10px;
+        border: none;
+        display: inline-block;
+        line-height: 20px;
+        text-align: center;
+        min-width: 50px;
+        & p {
+          display: block;
+          font-size: 2.8rem;
+          color: $textColor;
+          line-height: 40px;
+          padding-bottom: 5px;
+          font-weight: 600;
+          &:last-child {
+            background: $textColor;
+            color: $whiteColor;
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 0 10px;
+            line-height: 1.4;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+    &__btn {
+      z-index: 9;
+      cursor: pointer;
+      position: relative;
+      margin-top: 42px;
+      font-size: 1.4rem;
+      padding: 0 25px;
+      line-height: 44px;
+      background-color: transparent;
+      border: 1px solid $textColor;
+      transition: all 0.86s ease-in-out;
+      border-radius: 2px;
+      & a {
+        color: $textColor;
+        transition: all cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+      }
+      &::before {
+        background-color: $primaryColor;
+        @include pos-ab(0, null, 0, null);
+        content: "";
+        width: 0;
+        height: 100%;
+        transition: all cubic-bezier(0.645, 0.045, 0.355, 1) 0.86s;
+        z-index: -1;
+      }
+      &::after {
+        @include pos-ab(0, null, 0, null);
+        background-color: rgba(52, 53, 56, 0.3);
+        content: "";
+        width: 0;
+        height: 100%;
+        transition: all cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        z-index: -2;
+      }
+      &:hover {
+        border: 1px solid $primaryColor;
+        & a {
+          color: $whiteColor;
+        }
+        &::before {
+          left: 0;
+          width: 100%;
+        }
+        &::after {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
