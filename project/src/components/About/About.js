@@ -16,7 +16,7 @@ function About(props) {
           </div>
           <div className="col-introduce-detail">
             <div className="col-introduce-detail__content">
-              <h2>Hey ! I'm Hien Nguyen</h2>
+              <h2>Hi ! I'm Hien Nguyen</h2>
               <div className="col-introduce-detail__contnets__text">
                 <p>
                   I am an introvert but I do not dare to talk or communicate

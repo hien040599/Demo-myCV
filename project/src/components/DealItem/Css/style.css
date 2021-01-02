@@ -92,7 +92,7 @@ button:disabled {
 .wrapper-deal__content {
   background-image: url(../../../images/deal-bg.4a078e54.png);
   height: 640px;
-  width: 1520px;
+  width: 100%;
   background-size: cover;
   background-position: center center;
   display: -webkit-box;

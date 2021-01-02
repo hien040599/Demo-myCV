@@ -5,6 +5,7 @@ import Item from "../ListItems/Item";
 import ListCategory from "./ListCategory";
 import Pagination from "react-js-pagination";
 import { collectionContext } from "../../context/CollectionContext";
+import { apiContext } from "../../context/GetApi";
 import {
   DEFALUT_SORT,
   GET_ITEMS,
@@ -16,15 +17,22 @@ import {
   SORT_HIGH_TO_LOW,
   SORT_LOW_TO_HIGH,
 } from "../../Reducer/type";
+import * as Notify from "../../Constants/Notify";
+import { NOTIFY_ERROR_SEARCH } from "../../Constants/Messages";
 
-function Collection({getAllWishlistItem}) {
+function Collection({ getAllWishlistItem }) {
   const {
     listItems,
     dispatch,
     ItemsDefault,
     handlePaginationPage,
     pageNumber,
+    handleChangeSeachState,
+    handleSearch,
+    stringSearch,
   } = useContext(collectionContext);
+
+  const { products } = useContext(apiContext);
 
   let newListItems = [...listItems];
 
@@ -106,8 +114,40 @@ function Collection({getAllWishlistItem}) {
     handlePaginationPage(newPage);
   };
 
+  let handleChangeSearch = (e) => {
+    let val = e.target.value;
+    handleChangeSeachState(val);
+  };
+
+  let handleSubmitForm = (e) => {
+    e.preventDefault();
+  };
+
+  let handleSubmit = () => {
+    handleSearch();
+    handleChangeSeachState("");
+
+    let i = 0;
+    for (const val of products) {
+      if (val.name.includes(stringSearch) === true) {
+        break;
+      } else {
+        i += 1;
+        if (i === products.length) {
+          Notify.toastError(
+            NOTIFY_ERROR_SEARCH,
+            "top-center",
+            2000,
+            "notify-cart-err"
+          );
+        }
+      }
+    }
+  };
+
   return (
     <div className="wrapper">
+      {Notify.toastContainer("bottom-left", 1200)}
       <Directional namePage={"Collection"} />
       <div className="container">
         <div className="row">
@@ -116,10 +156,18 @@ function Collection({getAllWishlistItem}) {
               <div className="col-collection__wrap-content__search">
                 <h4>Search</h4>
                 <div className="col-collection__wrap-content__search__search-box">
-                  <form>
-                    <input type="text" placeholder="Search here..." />
+                  <form onSubmit={(e) => handleSubmitForm(e)}>
+                    <input
+                      type="text"
+                      placeholder="Search here..."
+                      value={stringSearch}
+                      onChange={(e) => handleChangeSearch(e)}
+                    />
                     <button>
-                      <i className="fas fa-search"></i>
+                      <i
+                        className="fas fa-search"
+                        onClick={() => handleSubmit()}
+                      ></i>
                     </button>
                   </form>
                 </div>

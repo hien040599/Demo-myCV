@@ -6,25 +6,27 @@ import useSelectSort from "../hooks/useSelectSort";
 import ColectionProvider from "../context/CollectionContext";
 import { connect } from "react-redux";
 import { actGetApiWishlist } from "../Action";
+import GetApi from "../context/GetApi";
 
-
-function Collection({getAllWishlistItem}) {
-  useSelectSort()
+function Collection({ getAllWishlistItem }) {
+  useSelectSort();
   return (
     <div className="wrapper">
-     <ColectionProvider>
-      <section>
-        <Header />
-      </section>
+      <GetApi>
+        <ColectionProvider>
+          <section>
+            <Header />
+          </section>
 
-      <section>
-        <Colection getAllWishlistItem={getAllWishlistItem} />
-      </section>
+          <section>
+            <Colection getAllWishlistItem={getAllWishlistItem} />
+          </section>
 
-      <section>
-        <Footer />
-      </section>
-      </ColectionProvider>
+          <section>
+            <Footer />
+          </section>
+        </ColectionProvider>
+      </GetApi>
     </div>
   );
 }
@@ -44,4 +46,3 @@ let mapDispatchtoProps = (dispatch, props) => {
 };
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Collection);
-

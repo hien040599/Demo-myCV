@@ -5,6 +5,7 @@ import { FastField, Form, Formik } from "formik";
 import inputfield from "../../components/CustomField/InputFieldContact";
 import textareafield from "../../components/CustomField/TextareaField";
 import { validateForm } from "../../Constants/ValidationContact";
+import MyLink from "../../Constants/CustomLink";
 
 function Contact(props) {
   const initialValue = {
@@ -37,10 +38,18 @@ function Contact(props) {
                 </div>
                 <div className="col-contact-details__content__infor__text">
                   <p>
-                    <a href="mailto:urname@email.com">urname@email.com</a>
+                    <MyLink
+                      lable={"urname@email.com"}
+                      to={"/"}
+                      activeExact={true}
+                    />
                   </p>
                   <p>
-                    <a href="//urwebsitenaem.com">urwebsitenaem.com</a>
+                    <MyLink
+                      lable={"urwebsitenaem.com"}
+                      to={"/"}
+                      activeExact={true}
+                    />
                   </p>
                 </div>
               </div>
@@ -58,18 +67,26 @@ function Contact(props) {
               <div className="col-contact-details__content__infor__social">
                 <h3>Follow Us</h3>
                 <div className="col-contact-details__content__infor__social__icon">
-                  <a href="google.com.vn">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="google.com.vn">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="google.com.vn">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="google.com.vn">
-                    <i className="fab fa-pinterest-p"></i>
-                  </a>
+                  <MyLink
+                    lable={<i className="fab fa-facebook-f"></i>}
+                    to={"/"}
+                    activeExact={true}
+                  />
+                  <MyLink
+                    lable={<i className="fab fa-instagram"></i>}
+                    to={"/"}
+                    activeExact={true}
+                  />
+                  <MyLink
+                    lable={<i className="fab fa-twitter"></i>}
+                    to={"/"}
+                    activeExact={true}
+                  />
+                  <MyLink
+                    lable={<i className="fab fa-pinterest-p"></i>}
+                    to={"/"}
+                    activeExact={true}
+                  />
                 </div>
               </div>
             </div>

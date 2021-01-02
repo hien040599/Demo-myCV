@@ -13,10 +13,12 @@ import { GET_ITEMS } from "../Reducer/type";
 export const collectionContext = createContext();
 
 function CollectionProvider({ children }) {
+  const [stringSearch, setStringSearch] = useState("");
   const [listItems, dispatch] = useReducer(CollectionReducer, []);
   const [paginate, setpaginate] = useState({
     page: 1,
     limit: 6,
+    search: "",
   });
   const arrItems = useRef([]);
   useEffect(() => {
@@ -38,13 +40,26 @@ function CollectionProvider({ children }) {
     setpaginate({ ...paginate, page: newPage });
   };
 
+  const handleChangeSeachState = (value) => {
+    setStringSearch(value);
+  };
+
+  const handleSearch = () => {
+    setpaginate({ ...paginate, search: stringSearch });
+  };
+
+
   const collectionContextdata = {
-    listItems,
     dispatch,
     ItemsDefault: arrItems.current,
     handlePaginationPage,
     pageNumber: paginate.page,
+    handleChangeSeachState,
+    handleSearch,
+    stringSearch,
+    listItems,
   };
+
   return (
     <collectionContext.Provider value={collectionContextdata}>
       {children}

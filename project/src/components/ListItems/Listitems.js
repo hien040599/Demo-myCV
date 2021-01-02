@@ -46,7 +46,7 @@ function Listitems({ getAllWishlistItem }) {
           />
         </div>
       </div>
-<DealItem/>
+      <DealItem />
       <div className="row">
         <div className="wrapp-email-sub">
           <div className="wrapp-email-sub__form-sub">

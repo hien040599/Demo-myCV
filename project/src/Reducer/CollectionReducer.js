@@ -48,11 +48,11 @@ export const CollectionReducer = (state, action) => {
         return item.price > 500;
       });
       return [...arrFilterPrice3];
-      case RENDER_FILTER_NAME:
-        let arrFilter = payload.arr.filter((item) => {
-          return item.namecate === payload.nameCate;
-        });
-        return [...arrFilter]
+    case RENDER_FILTER_NAME:
+      let arrFilter = payload.arr.filter((item) => {
+        return item.namecate === payload.nameCate;
+      });
+      return [...arrFilter];
     default:
       return state;
   }
