@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import MyLink from "../../Constants/CustomLink";
 import {
   ADD_TO_CART,
@@ -22,10 +22,42 @@ function CartItem(props) {
     item,
   } = props;
 
-  let handleChangeQnt = (e) => {};
+  const [qntItem, setqntItem] = useState(quantity);
+  const qntItemRef = useRef(null);
+
+  let handleChangeQnt = (e) => {
+    let val = e.target.value;
+
+    setqntItem(val);
+
+    if (qntItemRef.current) {
+      clearTimeout(qntItemRef.current);
+    }
+
+    qntItemRef.current = setTimeout(() => {
+      if (val === "") {
+        val = 1;
+        setqntItem(val);
+        Notify.toastError(
+          NOTIFY_ERROR_QNT,
+          "top-center",
+          2000,
+          "notify-cart-err"
+        );
+      }
+      updateCartItem(idItem, { ...item, quantity: +val });
+    }, 800);
+  };
+
+  let handleKeyPress = (e) => {
+    if (e.which < 48 || e.which > 57) {
+      e.preventDefault();
+    }
+  };
 
   let updateIncreaseItemCart = (idItem, data) => {
     updateCartItem(idItem, { ...data, quantity: data.quantity + 1 });
+    setqntItem(data.quantity + 1);
     Notify.toastSuccess(
       ADD_TO_CART,
       "bottom-left",
@@ -37,6 +69,7 @@ function CartItem(props) {
   let updateDecreaseItemCart = (idItem, data) => {
     if (data.quantity - 1 > 0) {
       updateCartItem(idItem, { ...data, quantity: data.quantity - 1 });
+      setqntItem(data.quantity - 1);
       Notify.toastWarn(
         DELETE_ITEM_FROM_CART,
         "bottom-left",
@@ -85,9 +118,10 @@ function CartItem(props) {
             -
           </button>
           <input
-            type="text"
+            type="number"
             onChange={(e) => handleChangeQnt(e)}
-            value={quantity}
+            value={qntItem}
+            onKeyPress={(e) => handleKeyPress(e)}
           />
           <button onClick={() => updateIncreaseItemCart(idItem, item)}>
             +

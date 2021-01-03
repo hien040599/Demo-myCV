@@ -12,4 +12,4 @@ export const ADD_TO_WISHLIST = "Added To Wishlist";
 export const DELETE_ITEM_FROM_WISHLIST = "Removed From Wishlist";
 export const NOTIFY_ERROR_ADD_IN_WISHLIST =
   "The item is already on the wishlist";
-  export const NOTIFY_ERROR_SEARCH = "Can't find the product, please check again";
+export const NOTIFY_ERROR_SEARCH = "Can't find the product, please check again";
