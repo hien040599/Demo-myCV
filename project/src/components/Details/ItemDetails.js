@@ -177,6 +177,12 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
     }
   };
 
+  let handleKeyPress = (e) => {
+    if (e.which < 48 || e.which > 57) {
+      e.preventDefault();
+    }
+  };
+
   pushListRelated(listRelatedItems);
 
   return (
@@ -274,6 +280,7 @@ function ItemDetails({ itemid, getAllCartItem, cart }) {
                             type="number"
                             value={itemqnt}
                             onChange={(e) => handleChangeQnt(e)}
+                            onKeyPress={(e) => handleKeyPress(e)}
                           ></input>
                           <button onClick={() => changeIncreaseItem()}>
                             +
