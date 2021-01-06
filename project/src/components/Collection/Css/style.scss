@@ -58,7 +58,8 @@
         & li {
           @include flex-box(flex-start, center);
           padding-bottom: 15px;
-          & input[type="checkbox"] {
+          & input[type="checkbox"],
+          & input[type="radio"] {
             position: relative;
             width: 15px;
             height: 15px;
@@ -196,12 +197,12 @@
             box-shadow: 0 0 12px 0.8px rgba(0, 0, 0, 0.1);
           }
         }
-        .activeclass{
+        .activeclass {
           border-color: $primaryColor;
-        background-color: $primaryColor;
-        color: $whiteColor;
+          background-color: $primaryColor;
+          color: $whiteColor;
         }
-        .disabledclass{
+        .disabledclass {
           visibility: hidden;
         }
       }

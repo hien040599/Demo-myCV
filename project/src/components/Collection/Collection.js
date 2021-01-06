@@ -30,6 +30,9 @@ function Collection({ getAllWishlistItem }) {
     handleChangeSeachState,
     handleSearch,
     stringSearch,
+    typing,
+    setTiping,
+    getInput,
   } = useContext(collectionContext);
 
   const { products } = useContext(apiContext);
@@ -45,13 +48,13 @@ function Collection({ getAllWishlistItem }) {
     });
   };
 
-  let sortHighToLow = (arr) => {
+  let sortHighToLow = () => {
     dispatch({
       type: SORT_HIGH_TO_LOW,
     });
   };
 
-  let sortLowToHigh = (arr) => {
+  let sortLowToHigh = () => {
     dispatch({
       type: SORT_LOW_TO_HIGH,
     });
@@ -61,7 +64,7 @@ function Collection({ getAllWishlistItem }) {
     dispatch({
       type: RENDER_FILTER_NAME,
       payload: {
-        arr: ItemsDefault,
+        arr: products,
         nameCate,
       },
     });
@@ -71,7 +74,8 @@ function Collection({ getAllWishlistItem }) {
     dispatch({
       type: RENDER_FILTER_PRICE0,
       payload: {
-        ItemsDefault,
+        ListItems: products,
+        typing,
       },
     });
   };
@@ -80,7 +84,8 @@ function Collection({ getAllWishlistItem }) {
     dispatch({
       type: RENDER_FILTER_PRICE1,
       payload: {
-        ItemsDefault,
+        ListItems: products,
+        typing,
       },
     });
   };
@@ -89,7 +94,8 @@ function Collection({ getAllWishlistItem }) {
     dispatch({
       type: RENDER_FILTER_PRICE2,
       payload: {
-        ItemsDefault,
+        ListItems: products,
+        typing,
       },
     });
   };
@@ -98,7 +104,8 @@ function Collection({ getAllWishlistItem }) {
     dispatch({
       type: RENDER_FILTER_PRICE3,
       payload: {
-        ItemsDefault,
+        ListItems: products,
+        typing,
       },
     });
   };
@@ -145,6 +152,10 @@ function Collection({ getAllWishlistItem }) {
     }
   };
 
+  let changeTyping = (category) => {
+    setTiping(category);
+  };
+
   return (
     <div className="wrapper">
       {Notify.toastContainer("bottom-left", 1200)}
@@ -158,6 +169,7 @@ function Collection({ getAllWishlistItem }) {
                 <div className="col-collection__wrap-content__search__search-box">
                   <form onSubmit={(e) => handleSubmitForm(e)}>
                     <input
+                      ref={getInput}
                       type="text"
                       placeholder="Search here..."
                       value={stringSearch}
@@ -172,7 +184,10 @@ function Collection({ getAllWishlistItem }) {
                   </form>
                 </div>
               </div>
-              <ListCategory renderFilterCate={renderFilterName} />
+              <ListCategory
+                renderFilterCate={renderFilterName}
+                changeTyping={changeTyping}
+              />
               <ul className="col-collection__wrap-content__list">
                 <li className="col-collection__wrap-content__list__item">
                   <h4>Price</h4>
@@ -181,35 +196,35 @@ function Collection({ getAllWishlistItem }) {
                   onClick={() => renderFilterPrice0()}
                   className="col-collection__wrap-content__list__item"
                 >
-                  <input type="checkbox" id="check-price-4" />
+                  <input type="radio" name="choose-price" id="check-price-4" />
                   <label htmlFor="check-price-4">Below $10</label>
                 </li>
                 <li
                   onClick={() => renderFilterPrice1()}
                   className="col-collection__wrap-content__list__item"
                 >
-                  <input type="checkbox" id="check-price-5" />
+                  <input type="radio" name="choose-price" id="check-price-5" />
                   <label htmlFor="check-price-5">$10 - $100</label>
                 </li>
                 <li
                   onClick={() => renderFilterPrice2()}
                   className="col-collection__wrap-content__list__item"
                 >
-                  <input type="checkbox" id="check-price-6" />
+                  <input type="radio" name="choose-price" id="check-price-6" />
                   <label htmlFor="check-price-6">$100 - $500</label>
                 </li>
                 <li
                   onClick={() => renderFilterPrice3()}
                   className="col-collection__wrap-content__list__item"
                 >
-                  <input type="checkbox" id="check-price-7" />
+                  <input type="radio" name="choose-price" id="check-price-7" />
                   <label htmlFor="check-price-7">Above $500</label>
                 </li>
                 <li
                   onClick={() => renderFilterPrice4()}
                   className="col-collection__wrap-content__list__item"
                 >
-                  <input type="checkbox" id="check-price-8" />
+                  <input type="radio" name="choose-price" id="check-price-8" />
                   <label htmlFor="check-price-8">All</label>
                 </li>
               </ul>

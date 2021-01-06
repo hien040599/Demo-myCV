@@ -3,7 +3,7 @@ import CallApi from "../../API/CallApi";
 
 function ListCategory(props) {
   const [cate, setcate] = useState([]);
-  const { renderFilterCate } = props;
+  const { renderFilterCate, changeTyping } = props;
 
   useEffect(() => {
     let getData = async () => {
@@ -14,8 +14,20 @@ function ListCategory(props) {
   }, []);
 
   let handleFilter = (nameCate) => {
-    renderFilterCate(nameCate);
+    const getInputElement = document.querySelectorAll(
+      ".col-collection__wrap-content__list__item input[type='checkbox']"
+    );
+
+    for (const e of getInputElement) {
+      e.addEventListener("click", () => {
+        if (e.checked === true) {
+          renderFilterCate(nameCate);
+          changeTyping({ nameCate, status: e.checked });
+        }
+      });
+    }
   };
+
   return (
     <ul className="col-collection__wrap-content__list">
       <li className="col-collection__wrap-content__list__item">

@@ -236,8 +236,7 @@ button:disabled {
   content: "";
   opacity: 0;
   visibility: hidden;
-  border: 10px solid red;
-  border-color: transparent;
+  border: 10px solid transparent;
   border-top: 8px solid #000;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;

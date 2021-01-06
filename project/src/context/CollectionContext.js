@@ -21,6 +21,8 @@ function CollectionProvider({ children }) {
     search: "",
   });
   const arrItems = useRef([]);
+  const getInput = useRef(null)
+  const [typing, setTiping] = useState("");
   useEffect(() => {
     let getData = async () => {
       let paramUrl = querystring.stringify(paginate);
@@ -36,6 +38,10 @@ function CollectionProvider({ children }) {
     });
   }, [paginate]);
 
+  useEffect(() =>{
+    getInput.current.focus();
+  },[])
+
   const handlePaginationPage = (newPage) => {
     setpaginate({ ...paginate, page: newPage });
   };
@@ -48,7 +54,6 @@ function CollectionProvider({ children }) {
     setpaginate({ ...paginate, search: stringSearch });
   };
 
-
   const collectionContextdata = {
     dispatch,
     ItemsDefault: arrItems.current,
@@ -58,6 +63,9 @@ function CollectionProvider({ children }) {
     handleSearch,
     stringSearch,
     listItems,
+    typing, 
+    setTiping,
+    getInput
   };
 
   return (
