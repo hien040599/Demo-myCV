@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Directional from "../../layout/Directional/Directional";
 import "./Css/style.css";
 import Item from "../ListItems/Item";
@@ -16,6 +16,16 @@ import {
   RENDER_FILTER_PRICE3,
   SORT_HIGH_TO_LOW,
   SORT_LOW_TO_HIGH,
+  RENDER_FILTER_SORT_CATE_HIGH_TO_LOW,
+  RENDER_FILTER_SORT_CATE_LOW_TO_HIGH,
+  RENDER_FILTER_SORT_CATE_HIGH_TO_LOW1,
+  RENDER_FILTER_SORT_CATE_HIGH_TO_LOW2,
+  RENDER_FILTER_SORT_CATE_HIGH_TO_LOW0,
+  RENDER_FILTER_SORT_CATE_LOW_TO_HIGH0,
+  RENDER_FILTER_SORT_CATE_LOW_TO_HIGH1,
+  RENDER_FILTER_SORT_CATE_LOW_TO_HIGH2,
+  RENDER_FILTER_SORT_CATE_HIGH_TO_LOW3,
+  RENDER_FILTER_SORT_CATE_LOW_TO_HIGH3,
 } from "../../Reducer/type";
 import * as Notify from "../../Constants/Notify";
 import { NOTIFY_ERROR_SEARCH } from "../../Constants/Messages";
@@ -33,11 +43,15 @@ function Collection({ getAllWishlistItem }) {
     typing,
     setTiping,
     getInput,
+    sortByCate,
+    setsortBYCate,
   } = useContext(collectionContext);
 
   const { products } = useContext(apiContext);
 
   let newListItems = [...listItems];
+
+  const [getNameCate, setgetNameCate] = useState("");
 
   let defaultSort = () => {
     dispatch({
@@ -52,12 +66,14 @@ function Collection({ getAllWishlistItem }) {
     dispatch({
       type: SORT_HIGH_TO_LOW,
     });
+    setsortBYCate("SORT_HIGH_TO_LOW");
   };
 
   let sortLowToHigh = () => {
     dispatch({
       type: SORT_LOW_TO_HIGH,
     });
+    setsortBYCate("SORT_LOW_TO_HIGH");
   };
 
   let renderFilterName = (nameCate) => {
@@ -68,6 +84,23 @@ function Collection({ getAllWishlistItem }) {
         nameCate,
       },
     });
+
+    if (sortByCate === "SORT_HIGH_TO_LOW") {
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_HIGH_TO_LOW,
+        payload: {
+          arr: products,
+          nameCate,
+        },
+      });
+    } else if (sortByCate === "SORT_LOW_TO_HIGH")
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_LOW_TO_HIGH,
+        payload: {
+          arr: products,
+          nameCate,
+        },
+      });
   };
 
   let renderFilterPrice0 = () => {
@@ -78,6 +111,22 @@ function Collection({ getAllWishlistItem }) {
         typing,
       },
     });
+    if (sortByCate === "SORT_HIGH_TO_LOW") {
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_HIGH_TO_LOW0,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
+    } else if (sortByCate === "SORT_LOW_TO_HIGH")
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_LOW_TO_HIGH0,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
   };
 
   let renderFilterPrice1 = () => {
@@ -88,6 +137,22 @@ function Collection({ getAllWishlistItem }) {
         typing,
       },
     });
+    if (sortByCate === "SORT_HIGH_TO_LOW") {
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_HIGH_TO_LOW1,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
+    } else if (sortByCate === "SORT_LOW_TO_HIGH")
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_LOW_TO_HIGH1,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
   };
 
   let renderFilterPrice2 = () => {
@@ -98,6 +163,22 @@ function Collection({ getAllWishlistItem }) {
         typing,
       },
     });
+    if (sortByCate === "SORT_HIGH_TO_LOW") {
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_HIGH_TO_LOW2,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
+    } else if (sortByCate === "SORT_LOW_TO_HIGH")
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_LOW_TO_HIGH2,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
   };
 
   let renderFilterPrice3 = () => {
@@ -108,6 +189,22 @@ function Collection({ getAllWishlistItem }) {
         typing,
       },
     });
+    if (sortByCate === "SORT_HIGH_TO_LOW") {
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_HIGH_TO_LOW3,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
+    } else if (sortByCate === "SORT_LOW_TO_HIGH")
+      dispatch({
+        type: RENDER_FILTER_SORT_CATE_LOW_TO_HIGH3,
+        payload: {
+          arr: products,
+          nameCate: getNameCate,
+        },
+      });
   };
 
   let renderFilterPrice4 = () => {
@@ -187,6 +284,7 @@ function Collection({ getAllWishlistItem }) {
               <ListCategory
                 renderFilterCate={renderFilterName}
                 changeTyping={changeTyping}
+                changeGetNameCate={setgetNameCate}
               />
               <ul className="col-collection__wrap-content__list">
                 <li className="col-collection__wrap-content__list__item">

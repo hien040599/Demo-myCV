@@ -23,6 +23,7 @@ function CollectionProvider({ children }) {
   const arrItems = useRef([]);
   const getInput = useRef(null)
   const [typing, setTiping] = useState("");
+  const [sortByCate, setsortBYCate] = useState("")
   useEffect(() => {
     let getData = async () => {
       let paramUrl = querystring.stringify(paginate);
@@ -65,7 +66,9 @@ function CollectionProvider({ children }) {
     listItems,
     typing, 
     setTiping,
-    getInput
+    getInput,
+    sortByCate, 
+    setsortBYCate
   };
 
   return (

@@ -7,6 +7,7 @@ import banner1 from "../../test/img/banner3.png";
 import banner2 from "../../test/img/banner8.png";
 import banner3 from "../../test/img/banner69.png";
 import useBanner from "../../hooks/useBanner";
+import MyLink from "../../Constants/CustomLink";
 
 function Banner(props) {
   useBanner();
@@ -53,7 +54,12 @@ function Banner(props) {
         <li className="wp-banner__list__item">3</li>
       </ul>
       <div className="wp-banner__wp-btn">
-        <button className="btn-banner">SHOP NOW</button>
+        <MyLink
+          lable={"SHOP NOW"}
+          to={"/collection"}
+          activeExact={true}
+          className="btn-banner"
+        />
       </div>
     </div>
   );
