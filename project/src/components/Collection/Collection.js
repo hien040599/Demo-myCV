@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Directional from "../../layout/Directional/Directional";
 import "./Css/style.css";
 import Item from "../ListItems/Item";
@@ -45,13 +45,15 @@ function Collection({ getAllWishlistItem }) {
     getInput,
     sortByCate,
     setsortBYCate,
+    getNameCate,
+    setgetNameCate,
+    idInput,
+    setidInput,
   } = useContext(collectionContext);
 
   const { products } = useContext(apiContext);
 
   let newListItems = [...listItems];
-
-  const [getNameCate, setgetNameCate] = useState("");
 
   let defaultSort = () => {
     dispatch({
@@ -82,6 +84,7 @@ function Collection({ getAllWishlistItem }) {
       payload: {
         arr: products,
         nameCate,
+        idInput,
       },
     });
 
@@ -104,6 +107,8 @@ function Collection({ getAllWishlistItem }) {
   };
 
   let renderFilterPrice0 = () => {
+    let getInputElement = document.getElementById("check-price-4").id;
+
     dispatch({
       type: RENDER_FILTER_PRICE0,
       payload: {
@@ -127,9 +132,11 @@ function Collection({ getAllWishlistItem }) {
           nameCate: getNameCate,
         },
       });
+    setidInput(getInputElement);
   };
 
   let renderFilterPrice1 = () => {
+    let getInputElement = document.getElementById("check-price-5").id;
     dispatch({
       type: RENDER_FILTER_PRICE1,
       payload: {
@@ -153,9 +160,11 @@ function Collection({ getAllWishlistItem }) {
           nameCate: getNameCate,
         },
       });
+    setidInput(getInputElement);
   };
 
   let renderFilterPrice2 = () => {
+    let getInputElement = document.getElementById("check-price-6").id;
     dispatch({
       type: RENDER_FILTER_PRICE2,
       payload: {
@@ -179,9 +188,11 @@ function Collection({ getAllWishlistItem }) {
           nameCate: getNameCate,
         },
       });
+    setidInput(getInputElement);
   };
 
   let renderFilterPrice3 = () => {
+    let getInputElement = document.getElementById("check-price-7").id;
     dispatch({
       type: RENDER_FILTER_PRICE3,
       payload: {
@@ -205,6 +216,7 @@ function Collection({ getAllWishlistItem }) {
           nameCate: getNameCate,
         },
       });
+    setidInput(getInputElement);
   };
 
   let renderFilterPrice4 = () => {

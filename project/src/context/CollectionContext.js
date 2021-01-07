@@ -21,9 +21,11 @@ function CollectionProvider({ children }) {
     search: "",
   });
   const arrItems = useRef([]);
-  const getInput = useRef(null)
+  const getInput = useRef(null);
   const [typing, setTiping] = useState("");
-  const [sortByCate, setsortBYCate] = useState("")
+  const [sortByCate, setsortBYCate] = useState("");
+  const [getNameCate, setgetNameCate] = useState("");
+  const [idInput, setidInput] = useState("");
   useEffect(() => {
     let getData = async () => {
       let paramUrl = querystring.stringify(paginate);
@@ -39,9 +41,9 @@ function CollectionProvider({ children }) {
     });
   }, [paginate]);
 
-  useEffect(() =>{
+  useEffect(() => {
     getInput.current.focus();
-  },[])
+  }, []);
 
   const handlePaginationPage = (newPage) => {
     setpaginate({ ...paginate, page: newPage });
@@ -64,11 +66,15 @@ function CollectionProvider({ children }) {
     handleSearch,
     stringSearch,
     listItems,
-    typing, 
+    typing,
     setTiping,
     getInput,
-    sortByCate, 
-    setsortBYCate
+    sortByCate,
+    setsortBYCate,
+    getNameCate,
+    setgetNameCate,
+    idInput,
+    setidInput,
   };
 
   return (

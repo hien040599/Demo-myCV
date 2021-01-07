@@ -118,7 +118,25 @@ export const CollectionReducer = (state, action) => {
       return [...resultFilterPrice3];
     case RENDER_FILTER_NAME:
       let arrFilter = payload.arr.filter((item) => {
-        return item.namecate === payload.nameCate;
+        if (payload.idInput.length === 0) {
+          return item.namecate === payload.nameCate;
+        } else if (payload.idInput === "check-price-4") {
+          return item.namecate === payload.nameCate && item.price < 10;
+        } else if (payload.idInput === "check-price-5") {
+          return (
+            item.namecate === payload.nameCate &&
+            item.price > 10 &&
+            item.price < 100
+          );
+        } else if (payload.idInput === "check-price-6") {
+          return (
+            item.namecate === payload.nameCate &&
+            item.price > 100 &&
+            item.price < 500
+          );
+        } else {
+          return item.namecate === payload.nameCate && item.price > 500;
+        }
       });
       return [...arrFilter];
 

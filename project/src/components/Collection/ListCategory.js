@@ -32,7 +32,7 @@ function ListCategory(props) {
   return (
     <ul className="col-collection__wrap-content__list">
       <li className="col-collection__wrap-content__list__item">
-        <h4>Categoty</h4>
+        <h4>Category</h4>
       </li>
       {cate.map((cate, index) => {
         return (
