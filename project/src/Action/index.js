@@ -3,22 +3,34 @@ import CallApi from "../API/CallApi";
 
 export let actGetApiCart = () => {
   return async (dispatch) => {
-    let result = await CallApi("cart", null);
-    dispatch(actRenderApi(result.data));
+    try {
+      let result = await CallApi("cart", null);
+      dispatch(actRenderApi(result.data));
+    } catch (error) {
+      alert("A data download error has occurred. Please reload the page");
+    }
   };
 };
 
 export let actDeleteApiCart = (idItem) => {
   return async (dispatch) => {
-    await CallApi(`cart/${idItem}`, null, "DELETE");
-    dispatch(actGetApiCart());
+    try {
+      await CallApi(`cart/${idItem}`, null, "DELETE");
+      dispatch(actGetApiCart());
+    } catch (error) {
+      alert("A data download error has occurred. Please reload the page");
+    }
   };
 };
 
 export let actUpdateApiCart = (idItem, data) => {
   return async (dispatch) => {
-    await CallApi(`cart/${idItem}`, data, "PUT");
-    dispatch(actGetApiCart());
+    try {
+      await CallApi(`cart/${idItem}`, data, "PUT");
+      dispatch(actGetApiCart());
+    } catch (error) {
+      alert("A data download error has occurred. Please reload the page");
+    }
   };
 };
 
@@ -31,15 +43,23 @@ export let actRenderApi = (item) => {
 
 export let actGetApiWishlist = () => {
   return async (dispatch) => {
-    let result = await CallApi("wishlist", null);
-    dispatch(actRenderApiWishlist(result.data));
+    try {
+      let result = await CallApi("wishlist", null);
+      dispatch(actRenderApiWishlist(result.data));
+    } catch (error) {
+      alert("A data download error has occurred. Please reload the page");
+    }
   };
 };
 
 export let actDeleteApiWishlist = (id) => {
   return async (dispatch) => {
-    await CallApi(`wishlist/${id}`, null, "DELETE");
-    dispatch(actGetApiWishlist());
+    try {
+      await CallApi(`wishlist/${id}`, null, "DELETE");
+      dispatch(actGetApiWishlist());
+    } catch (error) {
+      alert("A data download error has occurred. Please reload the page");
+    }
   };
 };
 

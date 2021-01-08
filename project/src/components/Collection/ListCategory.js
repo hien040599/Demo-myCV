@@ -7,8 +7,12 @@ function ListCategory(props) {
 
   useEffect(() => {
     let getData = async () => {
-      let resultData = await CallApi("category", "GET");
-      setcate(resultData.data);
+      try {
+        let resultData = await CallApi("category", "GET");
+        setcate(resultData.data);
+      } catch (error) {
+        alert("A data download error has occurred. Please reload the page");
+      }
     };
     getData();
   }, []);

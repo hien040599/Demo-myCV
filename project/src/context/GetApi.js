@@ -8,8 +8,12 @@ function GetApiProvider({ children }) {
 
   useEffect(() => {
     let getData = async () => {
-      let resultData = await CallApi("products", "GET");
-      setproducts(resultData.data);
+      try {
+        let resultData = await CallApi("products", "GET");
+        setproducts(resultData.data);
+      } catch (error) {
+        alert("A data download error has occurred. Please reload the page");
+      }
     };
     getData();
   }, []);

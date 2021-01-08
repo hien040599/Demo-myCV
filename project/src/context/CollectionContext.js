@@ -28,10 +28,14 @@ function CollectionProvider({ children }) {
   const [idInput, setidInput] = useState("");
   useEffect(() => {
     let getData = async () => {
-      let paramUrl = querystring.stringify(paginate);
-      let resultData = await CallApi(`products?${paramUrl}`, "GET");
-      arrItems.current = [...resultData.data];
-      return resultData;
+      try {
+        let paramUrl = querystring.stringify(paginate);
+        let resultData = await CallApi(`products?${paramUrl}`, "GET");
+        arrItems.current = [...resultData.data];
+        return resultData;
+      } catch (error) {
+        alert("A data download error has occurred. Please reload the page");
+      }
     };
     getData().then((res) => {
       dispatch({
