@@ -3,15 +3,21 @@ import Header from "../layout/header/Header";
 import Footer from "../layout/footer/Footer";
 import ItemDetails from "../components/Details/ItemDetails";
 import GetApi from "../context/GetApi";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actGetApiCart } from "../Action";
 
 function Details(props) {
-  const { match, getAllCartItem, listCart } = props;
+  const { match } = props;
+  const listCart = useSelector((state) => state.Cart);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getAllCartItem();
-  }, [getAllCartItem]);
+    dispatch(actGetApiCart());
+  }, [dispatch]);
+
+  let getAllCartItem = () => {
+    dispatch(actGetApiCart());
+  };
 
   return (
     <div className="wrapper">
@@ -36,16 +42,5 @@ function Details(props) {
   );
 }
 
-let mapStateToProps = (state) => {
-  return {
-    listCart: state.Cart,
-  };
-};
+export default Details;
 
-let mapDispatchtoProps = (dispatch, props) => {
-  return {
-    getAllCartItem: () => dispatch(actGetApiCart()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchtoProps)(Details);

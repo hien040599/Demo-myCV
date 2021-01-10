@@ -2,11 +2,10 @@ import React from "react";
 import Header from "../layout/header/Header";
 import Footer from "../layout/footer/Footer";
 import CheckOut from "../components/Checkout/CheckOut";
-import { connect } from "react-redux";
-import { actGetApiCart } from "../Action/index";
+import { useSelector } from "react-redux";
 
 function Checkout(props) {
-  const { item } = props;
+  const item = useSelector((state) => state.Cart);
   return (
     <div className="wrapper">
       <section>
@@ -24,16 +23,4 @@ function Checkout(props) {
   );
 }
 
-let mapStateToProps = (state) => {
-  return {
-    item: state.Cart,
-  };
-};
-
-let mapDispatchtoProps = (dispatch, props) => {
-  return {
-    getAllCartItem: () => dispatch(actGetApiCart()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchtoProps)(Checkout);
+export default Checkout;

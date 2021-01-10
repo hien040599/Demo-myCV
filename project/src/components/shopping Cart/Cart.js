@@ -93,7 +93,11 @@ function Cart(props) {
                 </div>
               </div>
               <div className="col-cart-show-total__wrap-content__footer">
-                <a href="/">Proceed to Checkout</a>
+                <MyLink
+                  lable={"Proceed to Checkout"}
+                  to={"/checkout"}
+                  activeExact={true}
+                />
               </div>
             </div>
           </div>

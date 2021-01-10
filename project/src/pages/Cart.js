@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Cart from "../components/shopping Cart/Cart";
 import Footer from "../layout/footer/Footer";
 import Header from "../layout/header/Header";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   actDeleteApiCart,
   actGetApiCart,
@@ -11,11 +11,20 @@ import {
 import CartEmpty from "../components/CartEmpty/CartEmpty";
 
 function CartPage(props) {
-  const { item, getAllCartItem, deleteCartItem, updateCartItem } = props;
+  const item = useSelector((state) => state.Cart);
+  const dispath = useDispatch();
 
   useEffect(() => {
-    getAllCartItem();
-  }, [getAllCartItem]);
+    dispath(actGetApiCart());
+  }, [dispath]);
+
+  let deleteCartItem = (idItem) => {
+    dispath(actDeleteApiCart(idItem));
+  };
+
+  let updateCartItem = (idItem, data) => {
+    dispath(actUpdateApiCart(idItem, data));
+  };
 
   return (
     <div className="wrapper">
@@ -41,18 +50,5 @@ function CartPage(props) {
     </div>
   );
 }
-let mapStateToProps = (state) => {
-  return {
-    item: state.Cart,
-  };
-};
 
-let mapDispatchtoProps = (dispatch, props) => {
-  return {
-    getAllCartItem: () => dispatch(actGetApiCart()),
-    deleteCartItem: (idItem) => dispatch(actDeleteApiCart(idItem)),
-    updateCartItem: (idItem, data) => dispatch(actUpdateApiCart(idItem, data)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchtoProps)(CartPage);
+export default CartPage;

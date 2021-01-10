@@ -68,8 +68,8 @@ function CheckOut({ item }) {
                 validationSchema={validateForm}
               >
                 {(formikprops) => {
-                  const { values } = formikprops;
-                  console.log(values);
+                  // const { values } = formikprops;
+                  // console.log(values);
                   return (
                     <Form>
                       <div className="row col-checkout__infor__wrapper__form">

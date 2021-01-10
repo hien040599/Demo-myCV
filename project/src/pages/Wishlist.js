@@ -2,14 +2,20 @@ import React, { useEffect } from "react";
 import Footer from "../layout/footer/Footer";
 import Header from "../layout/header/Header";
 import Wishlist from "../components/Wishlist/WishList";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actGetApiWishlist, actDeleteApiWishlist } from "../Action/index";
 import WishListEmpty from "../components/WishListEmpty/WishListEmpty";
 
-function WishlistPage({ items, getAllWishlistItem, deleteWishlistItem }) {
+function WishlistPage(props) {
+  const items = useSelector((state) => state.Wishlist);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getAllWishlistItem();
-  }, [getAllWishlistItem]);
+    dispatch(actGetApiWishlist);
+  }, [dispatch]);
+
+  let getAllWishlistItem = () => dispatch(actGetApiWishlist());
+  let deleteWishlistItem = (idItem) => dispatch(actDeleteApiWishlist(idItem));
 
   return (
     <div className="wrapper">
@@ -36,17 +42,4 @@ function WishlistPage({ items, getAllWishlistItem, deleteWishlistItem }) {
   );
 }
 
-let mapStateToProps = (state) => {
-  return {
-    items: state.Wishlist,
-  };
-};
-
-let mapDispatchtoProps = (dispatch, props) => {
-  return {
-    getAllWishlistItem: () => dispatch(actGetApiWishlist()),
-    deleteWishlistItem: (idItem) => dispatch(actDeleteApiWishlist(idItem)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchtoProps)(WishlistPage);
+export default WishlistPage;

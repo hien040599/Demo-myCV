@@ -5,10 +5,18 @@ import Listitems from "../components/ListItems/Listitems";
 import Footer from "../layout/footer/Footer";
 import Header from "../layout/header/Header";
 import GetApi from "../context/GetApi";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actGetApiWishlist } from "../Action";
 
-function Home({ getAllWishlistItem }) {
+function Home(props) {
+  const items = useSelector((state) => state.Wishlist);
+  const dispatch = useDispatch();
+
+  let getAllWishlistItem = () => {
+    dispatch(actGetApiWishlist());
+  };
+
+  localStorage.setItem("WISHLIST", JSON.stringify(items));
   return (
     <div className="wrapper">
       <GetApi>
@@ -31,18 +39,4 @@ function Home({ getAllWishlistItem }) {
   );
 }
 
-let mapStateToProps = (state) => {
-  localStorage.setItem("WISHLIST", JSON.stringify(state.Wishlist));
-
-  return {
-    items: state.Wishlist,
-  };
-};
-
-let mapDispatchtoProps = (dispatch, props) => {
-  return {
-    getAllWishlistItem: () => dispatch(actGetApiWishlist()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchtoProps)(Home);
+export default Home;
